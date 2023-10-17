@@ -100,20 +100,22 @@ export function MobileMenu() {
               </li>
               <li>
                 <Link
-                  href="/about"
+                  href="/projects"
                   className="flex text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100 py-2"
                   onClick={() => setMobileNavOpen(false)}
                 >
-                  About
+                  My Work
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/policy"
+                  href="https://github.com/christopherkeim"
+                  referrerPolicy="no-referrer"
+                  target="_blank"
                   className="flex text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100 py-2"
                   onClick={() => setMobileNavOpen(false)}
                 >
-                  Policy
+                  My Github
                 </Link>
               </li>
               <li>

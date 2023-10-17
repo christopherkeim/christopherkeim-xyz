@@ -33,18 +33,20 @@ export function Header() {
               </li>
               <li>
                 <Link
-                  href="/about"
+                  href="projects"
                   className="text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100 px-5 py-2 flex items-center transition duration-150 ease-in-out"
                 >
-                  About
+                  My Work
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/policy"
+                  href="https://github.com/christopherkeim"
+                  referrerPolicy="no-referrer"
+                  target="_blank"
                   className="text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100 px-5 py-2 flex items-center transition duration-150 ease-in-out"
                 >
-                  Policy
+                  My Github
                 </Link>
               </li>
             </ul>

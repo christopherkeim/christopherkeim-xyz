@@ -1,6 +1,7 @@
 import ProjectCard from "@/components/Projects/ProjectCard";
 import IconLight from "@/public/images/logo_light.svg";
 import IconDark from "@/public/images/logo_dark.svg";
+import GitHubIcon from "@/public/images/github.svg";
 
 export const metadata = {
   title: "Projects - DevSpace",
@@ -8,82 +9,55 @@ export const metadata = {
 };
 
 export default function Projects() {
-  const items01 = [
+  const projects = [
     {
-      id: 0,
+      id: "crypto_realtime_inference",
       iconLight: IconLight,
       iconDark: IconDark,
-      slug: "#0",
-      title: "Container Tinkering",
-      excerpt: "Solutions for running containers locally and remotely.",
-      openSource: true,
+      link: "https://github.com/christopherkeim/crypto-real-time-inference",
+      demoLink: "/projects/crypto",
+      title: "Crypto Realtime Inference",
+      excerpt:
+        "Leverage historical Bitcoin price data and cutting-edge machine learning algorithms to serve inferences about Bitcoin's future price points within a 1 hour window, in real time.",
     },
     {
-      id: 0,
-      iconLight: IconLight,
-      iconDark: IconDark,
-      slug: "#0",
-      title: "Engine Prototypes",
-      excerpt: "Solutions for running containers locally and remotely.",
-      openSource: false,
+      id: "python_ml_template",
+      iconLight: GitHubIcon,
+      iconDark: GitHubIcon,
+      link: "https://github.com/christopherkeim/python-ml-template",
+      title: "Python ML Template",
+      excerpt:
+        "Open Source template repository for Python-based Machine Learning projects.",
     },
   ];
 
-  const items02 = [
+  const research = [
     {
-      id: 0,
+      id: "twitter_sentiment_analysis",
       iconLight: IconLight,
       iconDark: IconDark,
-      slug: "#0",
-      title: "PixelOkay",
-      excerpt: "Code assets and services for people, with people.",
-      openSource: false,
-    },
-    {
-      id: 1,
-      iconLight: IconLight,
-      iconDark: IconDark,
-      slug: "#0",
-      title: "Storybook",
-      excerpt: "Storybook helps you develop, test, and document UIs.",
-      openSource: false,
-    },
-    {
-      id: 2,
-      iconLight: IconLight,
-      iconDark: IconDark,
-      slug: "#0",
-      title: "Knowledge AI",
+      link: "https://github.com/christopherkeim/machine_learning/blob/Projects/projects/Twitter_Sentiment_Analysis/Python/twitter_sentiment_analysis.ipynb",
+      title: "Twitter Sentiment Analysis",
       excerpt:
-        "Instantly answers all questions based on your internal knowledge bases.",
-      openSource: false,
+        "DL development of a LSTM neural network for sentiment analysis on 1.6 million tweets.",
     },
     {
-      id: 3,
+      id: "instacart_market_basket",
       iconLight: IconLight,
       iconDark: IconDark,
-      slug: "#0",
-      title: "Security Frame",
-      excerpt: "Automated security compliance for your business.",
-      openSource: false,
+      link: "https://github.com/christopherkeim/machine_learning/blob/Projects/projects/Instacart_Market_Basket_Analysis/Python/instacart_market_basket_EDA.ipynb",
+      title: "Instacart Market Basket Analysis",
+      excerpt:
+        "EDA on dataset of over 3 million orders placed by more than 200,000 Instacart users.",
     },
     {
-      id: 4,
+      id: "fetal_health_classification",
       iconLight: IconLight,
       iconDark: IconDark,
-      slug: "#0",
-      title: "KanbanOK",
-      excerpt: "The most powerful kanban board ever invented.",
-      openSource: false,
-    },
-    {
-      id: 5,
-      iconLight: IconLight,
-      iconDark: IconDark,
-      slug: "#0",
-      title: "T Analytics",
-      excerpt: "Make your Twitter analytics pretty and easy to share.",
-      openSource: false,
+      link: "https://github.com/christopherkeim/machine_learning/blob/Projects/projects/Fetal_Health_Classification/Python/fetal_health_classification.ipynb",
+      title: "Fetal Health Classification",
+      excerpt:
+        "ML development of 3 multiclass models that classify CTG features into fetal health states.",
     },
   ];
 
@@ -102,11 +76,11 @@ export default function Projects() {
               {/* Side Hustles cards */}
               <section>
                 <h2 className="font-aspekta text-xl font-[650] mb-6">
-                  Side Hustles
+                  Projects
                 </h2>
                 {/* Cards */}
                 <div className="grid md:grid-cols-2 gap-5">
-                  {items01.map((item) => (
+                  {projects.map((item) => (
                     <ProjectCard key={item.id} item={item} />
                   ))}
                 </div>
@@ -114,11 +88,11 @@ export default function Projects() {
               {/* Client Projects cards */}
               <section>
                 <h2 className="font-aspekta text-xl font-[650] mb-6">
-                  Client Projects
+                  Research Projects
                 </h2>
                 {/* Cards */}
                 <div className="grid md:grid-cols-2 gap-5">
-                  {items02.map((item) => (
+                  {research.map((item) => (
                     <ProjectCard key={item.id} item={item} />
                   ))}
                 </div>

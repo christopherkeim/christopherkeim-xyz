@@ -1,7 +1,4 @@
 import ProjectCard from "@/components/Projects/ProjectCard";
-// import WidgetNewsletter from "@/components/widget-newsletter";
-// import WidgetSponsor from "@/components/widget-sponsor";
-
 import IconLight from "@/public/images/logo_light.svg";
 import IconDark from "@/public/images/logo_dark.svg";
 
@@ -97,7 +94,9 @@ export default function Projects() {
         <div className="w-full">
           <section>
             {/* Page title */}
-            <h1 className="h1 font-aspekta mb-12">Nice stuff I've built</h1>
+            <h1 className="h1 font-aspekta mb-12">
+              Nice stuff I&apos;ve built
+            </h1>
             {/* Page content */}
             <div className="space-y-10">
               {/* Side Hustles cards */}
@@ -128,14 +127,6 @@ export default function Projects() {
           </section>
         </div>
       </div>
-
-      {/* Right sidebar */}
-      {/* <aside className="md:w-[240px] lg:w-[300px] shrink-0">
-        <div className="space-y-6">
-          <WidgetNewsletter />
-          <WidgetSponsor />
-        </div>
-      </aside> */}
     </div>
   );
 }

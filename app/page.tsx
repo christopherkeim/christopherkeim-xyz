@@ -8,8 +8,8 @@ import ChristopherKeim from "@/public/images/christopher_keim.jpg";
 import { FadeAnimation } from "@/components/ui/FadeAnimation";
 import { Education } from "@/components/Home/Education";
 import { Experience } from "@/components/Home/Experience";
-import { WidgetSkills } from "@/components/Home/WidgetSkills";
-import { WidgetCertifications } from "@/components/Home/WidgetCertifications";
+import { WidgetSkills } from "@/components/Widgets/WidgetSkills";
+import { WidgetCertifications } from "@/components/Widgets/WidgetCertifications";
 
 export default function About() {
   return (

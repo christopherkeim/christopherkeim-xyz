@@ -2,6 +2,9 @@ import ProjectCard from "@/components/Projects/ProjectCard";
 import IconLight from "@/public/images/logo_light.svg";
 import IconDark from "@/public/images/logo_dark.svg";
 import GitHubIcon from "@/public/images/github.svg";
+import TwitterSentimentIcon from "@/public/images/twitter_si.svg";
+import InstacartProjectIcon from "@/public/images/instacart_ba.svg";
+import FetalHealthClassificationIcon from "@/public/images/fhc.svg";
 
 export const metadata = {
   title: "Projects - DevSpace",
@@ -34,8 +37,8 @@ export default function Projects() {
   const research = [
     {
       id: "twitter_sentiment_analysis",
-      iconLight: IconLight,
-      iconDark: IconDark,
+      iconLight: TwitterSentimentIcon,
+      iconDark: TwitterSentimentIcon,
       link: "https://github.com/christopherkeim/machine_learning/blob/Projects/projects/Twitter_Sentiment_Analysis/Python/twitter_sentiment_analysis.ipynb",
       title: "Twitter Sentiment Analysis",
       excerpt:
@@ -43,8 +46,8 @@ export default function Projects() {
     },
     {
       id: "instacart_market_basket",
-      iconLight: IconLight,
-      iconDark: IconDark,
+      iconLight: InstacartProjectIcon,
+      iconDark: InstacartProjectIcon,
       link: "https://github.com/christopherkeim/machine_learning/blob/Projects/projects/Instacart_Market_Basket_Analysis/Python/instacart_market_basket_EDA.ipynb",
       title: "Instacart Market Basket Analysis",
       excerpt:
@@ -52,8 +55,8 @@ export default function Projects() {
     },
     {
       id: "fetal_health_classification",
-      iconLight: IconLight,
-      iconDark: IconDark,
+      iconLight: FetalHealthClassificationIcon,
+      iconDark: FetalHealthClassificationIcon,
       link: "https://github.com/christopherkeim/machine_learning/blob/Projects/projects/Fetal_Health_Classification/Python/fetal_health_classification.ipynb",
       title: "Fetal Health Classification",
       excerpt:

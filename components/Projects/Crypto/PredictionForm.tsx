@@ -23,7 +23,7 @@ export function PredictionForm({ setPrediction }: PredictionFormProps) {
     try {
       // Fire off fetch to predict endpoint
       // TODO: Change this to the real endpoint
-      const response = await fetch("/mock", {
+      const response = await fetch("/projects/crypto/mock", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

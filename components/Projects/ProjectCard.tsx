@@ -52,7 +52,7 @@ export default function ProjectCard({ item }: ItemProps) {
               {item.demoLink && (
                 <Link
                   href={item.demoLink}
-                  target="_blank"
+                  target={item.demoLink.startsWith("/") ? "_self" : "_blank"}
                   referrerPolicy="no-referrer"
                 >
                   <div className="text-xs inline-flex items-center font-medium bg-green-100 text-green-600 rounded-full text-center px-2 h-5 group">

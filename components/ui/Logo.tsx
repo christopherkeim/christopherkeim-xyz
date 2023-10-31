@@ -1,11 +1,7 @@
-import DarkLogo from "@/public/images/logo_dark.svg";
-import LightLogo from "@/public/images/logo_light.svg";
-import { useTheme } from "next-themes";
-
 export function Logo() {
-  const { theme } = useTheme();
-  if (theme === "dark") {
-    return (
+  return (
+    <>
+      {/* Dark Mode Logo */}
       <svg
         xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -15,6 +11,7 @@ export function Logo() {
         height="50"
         preserveAspectRatio="xMidYMid meet"
         version="1.0"
+        className="hidden dark:block"
       >
         <defs>
           <g />
@@ -69,9 +66,8 @@ export function Logo() {
           </g>
         </g>
       </svg>
-    );
-  } else {
-    return (
+
+      {/* Light Mode Logo */}
       <svg
         xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -81,6 +77,7 @@ export function Logo() {
         height="50"
         preserveAspectRatio="xMidYMid meet"
         version="1.0"
+        className="block dark:hidden"
       >
         <defs>
           <g />
@@ -135,6 +132,6 @@ export function Logo() {
           </g>
         </g>
       </svg>
-    );
-  }
+    </>
+  );
 }

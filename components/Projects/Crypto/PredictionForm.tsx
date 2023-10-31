@@ -22,18 +22,21 @@ export function PredictionForm({ setPrediction }: PredictionFormProps) {
     event.preventDefault();
     try {
       // Fire off fetch to predict endpoint
-      // TODO: Change this to the real endpoint
-      const response = await fetch("/projects/crypto/mock", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          coin: coin,
-          time: time,
-          model: model,
-        }),
-      });
+      const response = await fetch(
+        process.env.CRYPTO_REALTIME_INFERENCE_API_URI ??
+          "/projects/crypto/mock",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            coin: coin,
+            time: time,
+            model: model,
+          }),
+        }
+      );
 
       if (!response.ok)
         throw new Error(

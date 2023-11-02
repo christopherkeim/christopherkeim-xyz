@@ -36,10 +36,6 @@ export function PredictionForm({ setPrediction }: PredictionFormProps) {
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     try {
-      console.log(
-        "URI: ",
-        process.env.NEXT_PUBLIC_CRYPTO_REALTIME_INFERENCE_API_URI
-      );
       // Fire off fetch to predict endpoint
       const response = await fetch("/api/crypto/predict", {
         method: "POST",
@@ -74,8 +70,6 @@ export function PredictionForm({ setPrediction }: PredictionFormProps) {
         throw new Error("An error occurred while parsing response: " + json);
       }
 
-      console.log("Prediction: ", json.prediction);
-
       const { prediction } = json;
 
       // If all goes well, set the prediction state, which will trigger a re-render in the prediction result component
@@ -88,7 +82,7 @@ export function PredictionForm({ setPrediction }: PredictionFormProps) {
         request_timestamp: prediction.request_timestamp,
       });
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   }
 

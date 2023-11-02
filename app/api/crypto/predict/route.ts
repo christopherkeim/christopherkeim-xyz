@@ -17,8 +17,6 @@ export async function POST(request: Request) {
       return Response.json({ error: "Model is required" }, { status: 400 });
     }
 
-    console.log("From body: ", coin, time, model);
-
     const params = new URLSearchParams({
       coin: coin,
       time_from: time,

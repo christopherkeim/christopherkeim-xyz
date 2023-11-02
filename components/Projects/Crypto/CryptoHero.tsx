@@ -12,14 +12,14 @@ export default function CryptoHero() {
           <span className="text-green-500">Inference</span>
         </h1>
         <PredictionContainer />
-        <p
+        {/* <p
           className="text-xl text-gray-600 dark:text-gray-400"
           data-aos="fade-down"
           data-aos-delay="150"
         >
           Our landing page template works on all devices, so you only have to
           set it up once, and get beautiful results forever.
-        </p>
+        </p> */}
       </div>
     </section>
   );

@@ -6,60 +6,83 @@ type PredictionFormProps = {
   setPrediction: Dispatch<SetStateAction<Prediction | null>>;
 };
 
+// Example prediction response:
+// {
+//   "prediction": {
+//     "model": "cnn",
+//     "coin": "BTC-USD",
+//     "current_price": "34433.76",
+//     "prediction": "35680.61",
+//     "difference": "+1246.85",
+//     "time": "1698894000000",
+//     "request_timestamp": "1698894259695"
+//   }
+// }
+
 export type Prediction = {
-  coin: string;
-  time: string;
   model: string;
-  prediction: { amount: number; time: Date };
+  coin: string;
+  current_price: string;
+  prediction: string;
+  time: Date;
+  request_timestamp: string;
 };
 
 export function PredictionForm({ setPrediction }: PredictionFormProps) {
-  const [coin, setCoin] = useState<string>("BTC");
-  const [time, setTime] = useState<string>("CURRENT");
-  const [model, setModel] = useState<string>("BTC-1HR-CNN");
+  const [coin, setCoin] = useState<string>("BTC-USD");
+  const [time, setTime] = useState<string>("now");
+  const [model, setModel] = useState<string>("cnn");
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     try {
       // Fire off fetch to predict endpoint
-      const response = await fetch(
-        process.env.CRYPTO_REALTIME_INFERENCE_API_URI ??
-          "/projects/crypto/mock",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            coin: coin,
-            time: time,
-            model: model,
-          }),
-        }
-      );
+      const response = await fetch("/api/crypto/predict", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        mode: "no-cors",
+        body: JSON.stringify({
+          coin: coin,
+          time: time,
+          model: model,
+        }),
+      });
 
       if (!response.ok)
         throw new Error(
           "An error occurred while performing api fetch: " + response.statusText
         );
 
-      const json = await response.json();
+      const json: {
+        prediction: {
+          model: string;
+          coin: string;
+          current_price: string;
+          prediction: string;
+          time: string;
+          request_timestamp: string;
+        };
+      } = await response.json();
 
-      if (!json.prediction)
+      if (!json.prediction) {
         throw new Error("An error occurred while parsing response: " + json);
+      }
+
+      const { prediction } = json;
 
       // If all goes well, set the prediction state, which will trigger a re-render in the prediction result component
       setPrediction({
-        coin: json.coin,
-        time: json.time,
-        model: json.model,
-        prediction: {
-          amount: json.prediction.amount,
-          time: new Date(json.prediction.time),
-        },
+        model: prediction.model,
+        coin: prediction.coin,
+        current_price: prediction.current_price,
+        prediction: prediction.prediction,
+        time: new Date(parseInt(prediction.time)),
+        request_timestamp: prediction.request_timestamp,
       });
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   }
 
@@ -83,8 +106,8 @@ export function PredictionForm({ setPrediction }: PredictionFormProps) {
           aria-label="Select Coin"
           onChange={(event) => setCoin(event.target.value)}
         >
-          <option value="BTC">BTC</option>
-          {/* <option value="ETC">ETC</option> */}
+          <option value="BTC-USD">BTC-USD</option>
+          <option value="ETH-USD">ETH-USD</option>
         </select>
       </div>
 
@@ -101,16 +124,16 @@ export function PredictionForm({ setPrediction }: PredictionFormProps) {
           aria-label="Coin"
           onChange={(event) => setTime(event.target.value)}
         >
-          <option value="CURRENT">Current Time</option>
-          <option value="LESS-1HR">Current Time - 1 Hour</option>
-          <option value="LESS-2HR">Current Time - 2 Hour</option>
-          <option value="LESS-3HR">Current Time - 3 Hour</option>
-          <option value="LESS-4HR">Current Time - 4 Hour</option>
-          <option value="LESS-5HR">Current Time - 5 Hour</option>
-          <option value="LESS-6HR">Current Time - 6 Hour</option>
-          <option value="LESS-7HR">Current Time - 7 Hour</option>
-          <option value="LESS-8HR">Current Time - 8 Hour</option>
-          <option value="LESS-9HR">Current Time - 9 Hour</option>
+          <option value="now">Current Time</option>
+          <option value="1">Current Time - 1 Hour</option>
+          <option value="2">Current Time - 2 Hour</option>
+          <option value="3">Current Time - 3 Hour</option>
+          <option value="4">Current Time - 4 Hour</option>
+          <option value="5">Current Time - 5 Hour</option>
+          <option value="6">Current Time - 6 Hour</option>
+          <option value="7">Current Time - 7 Hour</option>
+          <option value="8">Current Time - 8 Hour</option>
+          <option value="9">Current Time - 9 Hour</option>
         </select>
       </div>
 
@@ -127,10 +150,8 @@ export function PredictionForm({ setPrediction }: PredictionFormProps) {
           aria-label="Select Model"
           onChange={(event) => setModel(event.target.value)}
         >
-          <option value="BTC-1HR-CNN">BTC +1 Hour (CNN)</option>
-          <option value="BTC-1HR-LASSO">BTC +1 Hour (LASSO)</option>
-          {/* <option value="ETC-1HR-CNN">ETC +1 Hour (CNN)</option> */}
-          {/* <option value="ETC-1HR-LASSO">ETC +1 Hour (LASSO)</option> */}
+          <option value="cnn">CNN</option>
+          <option value="lasso">LASSO</option>
         </select>
       </div>
 

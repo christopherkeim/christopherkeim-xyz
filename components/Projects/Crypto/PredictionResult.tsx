@@ -11,8 +11,8 @@ export function PredictionResult({ prediction }: PredictionResultProps) {
       {prediction && (
         <p className="text-xl text-gray-600 dark:text-gray-400">
           {`The ${prediction.coin} price prediction is $${
-            prediction.prediction.amount
-          } at ${prediction.prediction.time.toTimeString()}. This prediction used the ${
+            prediction.prediction
+          } at ${prediction.time.toLocaleTimeString()}. This prediction used the ${
             prediction.model
           } model.`}
         </p>

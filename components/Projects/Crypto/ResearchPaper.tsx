@@ -310,8 +310,8 @@ export function ResearchPaper() {
                 </li>
                 <li className="px-3">
                   ❌ Long Short-Term Memory Neural Network: complex, slow, and
-                  doesn't tolerate current features well; not recommended for
-                  use in current project
+                  doesn&apos;t tolerate current features well; not recommended
+                  for use in current project
                 </li>
               </ul>
             </PaperParagraph>
@@ -351,8 +351,8 @@ export function ResearchPaper() {
             </PaperParagraph>
             <PaperParagraph>
               In one virtual machine, we emulate an arm64 chip using QEMU and
-              build the Prediction Service into a Docker image that's executable
-              on our Raspberry Pi.
+              build the Prediction Service into a Docker image that&apos;s
+              executable on our Raspberry Pi.
             </PaperParagraph>
             <PaperParagraph>
               Simultaneously, a separate Docker image is built on a regular

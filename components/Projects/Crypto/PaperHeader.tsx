@@ -1,6 +1,6 @@
 type PaperHeaderProps = {
   children: React.ReactNode;
-  headerLevel?: 1 | 2 | 3;
+  headerLevel?: 1 | 2 | 3 | 4 | 5 | 6;
 };
 
 export function PaperHeader({ children, headerLevel = 3 }: PaperHeaderProps) {

@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export function PaperImage({ src }: { src: string }) {
+export function PaperImage({ src, alt }: { src: string; alt?: string }) {
   return (
     <Image
       className="my-2 block rounded-sm shadow-md dark:shadow-sm dark:shadow-slate-600"
@@ -8,7 +8,7 @@ export function PaperImage({ src }: { src: string }) {
       width={768}
       height={432}
       priority
-      alt="404"
+      alt={alt ?? ""}
     />
   );
 }

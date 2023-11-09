@@ -9,7 +9,7 @@ export function WidgetSkills() {
             <a className="text-sm font-[650]">Python</a>
           </div>
           <div
-            className={`relative h-1.5 w-60 shrink-0 bg-slate-200 before:absolute before:inset-0 before:w-[90%] before:bg-sky-500 dark:bg-slate-700 sm:w-80 md:w-20 lg:w-24`}
+            className={`relative h-1.5 w-48 shrink-0 bg-slate-200 before:absolute before:inset-0 before:w-[90%] before:bg-sky-500 dark:bg-slate-700 sm:w-80 md:w-20 lg:w-24`}
             role="progressbar"
             aria-valuenow={90}
             aria-valuemin={0}
@@ -22,7 +22,7 @@ export function WidgetSkills() {
             <a className="text-sm font-[650]">Bash/Shell</a>
           </div>
           <div
-            className={`relative h-1.5 w-60 shrink-0 bg-slate-200 before:absolute before:inset-0 before:w-[60%] before:bg-sky-500 dark:bg-slate-700 sm:w-80 md:w-20 lg:w-24`}
+            className={`relative h-1.5 w-48 shrink-0 bg-slate-200 before:absolute before:inset-0 before:w-[60%] before:bg-sky-500 dark:bg-slate-700 sm:w-80 md:w-20 lg:w-24`}
             role="progressbar"
             aria-valuenow={60}
             aria-valuemin={0}
@@ -35,7 +35,7 @@ export function WidgetSkills() {
             <a className="text-sm font-[650]">Machine Learning</a>
           </div>
           <div
-            className={`relative h-1.5 w-60 shrink-0 bg-slate-200 before:absolute before:inset-0 before:w-[60%] before:bg-sky-500 dark:bg-slate-700 sm:w-80 md:w-20 lg:w-24`}
+            className={`relative h-1.5 w-48 shrink-0 bg-slate-200 before:absolute before:inset-0 before:w-[60%] before:bg-sky-500 dark:bg-slate-700 sm:w-80 md:w-20 lg:w-24`}
             role="progressbar"
             aria-valuenow={60}
             aria-valuemin={0}
@@ -48,7 +48,7 @@ export function WidgetSkills() {
             <a className="text-sm font-[650]">Data Analytics</a>
           </div>
           <div
-            className={`relative h-1.5 w-60 shrink-0 bg-slate-200 before:absolute before:inset-0 before:w-[60%] before:bg-sky-500 dark:bg-slate-700 sm:w-80 md:w-20 lg:w-24`}
+            className={`relative h-1.5 w-48 shrink-0 bg-slate-200 before:absolute before:inset-0 before:w-[60%] before:bg-sky-500 dark:bg-slate-700 sm:w-80 md:w-20 lg:w-24`}
             role="progressbar"
             aria-valuenow={60}
             aria-valuemin={0}
@@ -61,7 +61,7 @@ export function WidgetSkills() {
             <a className="text-sm font-[650]">Go</a>
           </div>
           <div
-            className={`relative h-1.5 w-60 shrink-0 bg-slate-200 before:absolute before:inset-0 before:w-[25%] before:bg-sky-500 dark:bg-slate-700 sm:w-80 md:w-20 lg:w-24`}
+            className={`relative h-1.5 w-48 shrink-0 bg-slate-200 before:absolute before:inset-0 before:w-[25%] before:bg-sky-500 dark:bg-slate-700 sm:w-80 md:w-20 lg:w-24`}
             role="progressbar"
             aria-valuenow={25}
             aria-valuemin={0}

@@ -43,7 +43,12 @@ export function ResearchPaper() {
             </PaperParagraph>
             <PaperImage src="/images/BTC-USD_candle_plot.png" />
             <PaperParagraph>
-              The application consists of these core components:
+              The visualization above is a snapshot of raw candle data used in
+              this project. Cryptocurrency candles are pulled from Coinbase
+              using their public API.
+            </PaperParagraph>
+            <PaperParagraph>
+              The application consists of eight components:
               <ol
                 className="list-decimal flex flex-wrap px-6 my-4"
                 type="1"
@@ -55,7 +60,8 @@ export function ResearchPaper() {
                 <li className="px-3">
                   Data Engineering Pipeline: that pulls raw cryptocurrency OHLC
                   (&quot;open&quot;, &quot;high&quot;, &quot;low&quot;,
-                  &quot;close&quot;) candle data for a given cryptocurrency
+                  &quot;close&quot;) candle data for a given cryptocurrency from
+                  Coinbase
                 </li>
                 <li className="px-3">
                   Feature Engineering Pipeline: that builds
@@ -96,21 +102,21 @@ export function ResearchPaper() {
             <PaperImage src="/images/feature_engineering.png" />
             <PaperParagraph>
               Features are the variables (or information) that we give to
-              machine learning models for them to make predictions with.
+              machine learning models in order for them to make predictions.
             </PaperParagraph>
             <PaperParagraph>
               Feature engineering is the process of extracting meaningful
               information from raw data that describes or encodes the process we
               are measuring, with the aim of improving our supervised machine
-              learning algorithm&apos;s ability to make accurate predictions -
-              feature engineering plays a very key role in this project.
+              learning algorithm&apos;s ability to make accurate predictions.
+              Feature engineering plays a very key role in this project.
             </PaperParagraph>
             <PaperParagraph>
               The raw OHLC (&quot;open&quot;, &quot;high&quot;, &quot;low&quot;,
               &quot;close&quot;) candle data is not fit for supervised machine
               learning modeling as is when we pull it down from Coinbase - it
               must be processed into a set of predictive features (an
-              &quot;X&quot; dataset) and a target variable (a &quot;y&quot;
+              &quot;X&quot; dataset) and a target variable (&quot;y&quot;
               dataset) that we can train a model to make predictions with.
             </PaperParagraph>
             <PaperParagraph>
@@ -162,16 +168,17 @@ export function ResearchPaper() {
               the raw dataset of OHLC candles, which constitutes a 6-dimensional
               geometric space, into a 68-dimensional geometric space. Each
               candle which was once a 6-dimensional point is now a
-              68-dimensional point in this space.
+              68-dimensional point in this new space.
             </PaperParagraph>
             <PaperParagraph>
               In this sense, during model development we are training models to
               map 68-dimensional points in our feature space to 1-dimensional
-              points on our target space.
+              points in our target space.
             </PaperParagraph>
             <PaperParagraph>
               This application has infrastructure that supports both machine
-              learning and deep learning modeling for cryptocurrency price data.
+              learning and deep learning modeling for cryptocurrency price
+              predictions.
             </PaperParagraph>
             <PaperHeader headerLevel={4}>Machine Learning</PaperHeader>
             <PaperParagraph>
@@ -182,6 +189,30 @@ export function ResearchPaper() {
             <PaperHeader headerLevel={5}>
               <b>Lasso Regressor</b>
             </PaperHeader>
+            <PaperParagraph>
+              A Lasso Regressor a variation of linear regression that
+              incorporates a regularization term called L1 regularization, which
+              is also known as the &quot;Lasso&quot; (Least Absolute Shrinkage
+              and Selection Operator). The Lasso Regressor is designed to
+              prevent overfitting and to perform feature selection by
+              encouraging some of the model&apos;s coefficients to be exactly
+              zero.
+            </PaperParagraph>
+            <PaperParagraph>
+              A core feature of Lasso Regression is that in addition to
+              minimizing the least squares error (the difference between
+              predicted and actual values), the Lasso Regressor adds an L1
+              regularization term to the loss function.
+            </PaperParagraph>
+            <PaperParagraph>
+              The L1 regularization term encourages some of the coefficient
+              values to be exactly zero, resulting in a sparse model. This
+              effectively performs feature selection meaning that a Lasso
+              Regressor can automatically identify and exclude less important
+              features from the model. Here, this means our resulting model is
+              as simple as it can be given we want it to have the most
+              predictive power possible.
+            </PaperParagraph>
             <PaperParagraph>
               My personal preference is always to reach for simple regression
               models first - not only do they serve as good baselines in your
@@ -200,16 +231,21 @@ export function ResearchPaper() {
               <b>Light Gradient Boosted Machine Regressor</b>
             </PaperHeader>
             <PaperParagraph>
+              A Light Gradient Boosted Machine (LightGBM) is a powerful and
+              efficient machine learning algorithm designed to be fast and
+              memory-efficient. LightGBM is a gradient boosting framework, which
+              means it builds a predictive model by combining the predictions of
+              multiple weaker models, typically decision trees - these are also
+              known as ensemble methods.
+            </PaperParagraph>
+            <PaperParagraph>
               Ensemble methods are powerful, and often very successful in
               complex datasets.
             </PaperParagraph>
             <PaperParagraph>
               Often a Gradient Boosted Tree or a Random Forest are solid choices
               when testing whether a more complex model is better suited to your
-              dataset, without stepping into deep learning. Gradient Boosted
-              Trees have the benefit of having specific optimizations for
-              reaching convergence during parameter updates, leading to faster
-              training times.
+              dataset, without stepping into deep learning.
             </PaperParagraph>
             <PaperParagraph>
               The LGBMRegressor boasted a fast training time, but it did not
@@ -228,9 +264,42 @@ export function ResearchPaper() {
               ill-suited for our features.
             </PaperParagraph>
             <PaperParagraph>
-              Convolutional Neural Networks are typically used for image
-              analysis tasks, but it turned out to be a great model to implement
-              for the task at hand.
+              CNNs are typically used for image analysis tasks, but it turned
+              out to be a great model to adapt for analyzing time series data.
+            </PaperParagraph>
+            <PaperParagraph>
+              CNNs use convolutional layers as their core building blocks. These
+              layers consist of small filters (also known as kernels or
+              receptive fields) that slide over the input feature vector.
+            </PaperParagraph>
+            <PaperParagraph>
+              The filters are responsible for capturing various local patterns
+              in the data, such as edges, textures, and other low-level features
+              in a typical image example. Here, local patterns in our
+              cryptocurrency data would be relationships between previous price
+              points and other information I calculated during feature
+              engineering.
+            </PaperParagraph>
+            <PaperParagraph>
+              During the convolution operation, each filter scans the input
+              vector and computes the element-wise dot product between the
+              filter and the &quot;local region&quot; of the vector (meaning
+              neighboring variables). This process generates a feature map for
+              each filter.
+            </PaperParagraph>
+            <PaperParagraph>
+              A technique called pooling reduces the sizes of the computed
+              feature maps, and once the feature maps have been extracted and
+              pruned they are fed into a series of fully connected layers which
+              perform traditional neural network operations.
+            </PaperParagraph>
+            <PaperParagraph>
+              A key hyperparameter I selected during experimentation was to use
+              a kernel size of 4, meaning that the CNN scans the input vector 4
+              variables at a time. Using a 1-dimensional convolutional layer,
+              this effectively allowed the model to discover patterns in price
+              and volume changes over the past 24 hours, which I layed out
+              sequentially within each feature vector.
             </PaperParagraph>
             <PaperHeader headerLevel={5}>
               <b>Convolutional Neural Network Architecture</b>
@@ -278,10 +347,10 @@ export function ResearchPaper() {
               I found that a Convolutional Neural Network (CNN) performed far
               better on both Bitcoin and Ethereum predictions compared to a
               Long-Short Term Memory (LSTM) Neural Network, and it&apos;s
-              relative parameter simplicity combined with it&apos;s accuracy
-              made it a clear choice for deployment. The CNN model garnered a
-              mean absolute error of 64.711 on Bitcoin price predictions (fig.2)
-              and 4.474 on Ethereum price predictions (fig.4).
+              relative parameter simplicity combined with its accuracy made it a
+              clear choice for deployment. The CNN model garnered a mean
+              absolute error of 64.711 on Bitcoin price predictions (fig.2) and
+              4.474 on Ethereum price predictions (fig.4).
             </PaperParagraph>
             <PaperImage src="/images/BTC_modeling.png" />
             <PaperImage src="/images/ETH_modeling.png" />
@@ -318,80 +387,106 @@ export function ResearchPaper() {
             <PaperHeader headerLevel={3}>Prediction Service</PaperHeader>
             <PaperImage src="/images/prediction.png" />
             <PaperParagraph>
-              I used FastAPI to build an endpoint that responds to GET requests
-              with parameters for a cryptocurrency, timepoint, and model. The
-              service runs as a Docker container.
+              Our Prediction Service endpoint was built using FastAPI, and
+              responds to GET requests parameterized for a cryptocurrency,
+              timepoint, and model. The Prediction Service is containerized with
+              Docker.
             </PaperParagraph>
             <PaperParagraph>
-              After a valid request comes in, the Prediction Service loads the
+              After a valid request is made, the Prediction Service loads the
               requested model, downloads the past 24 hours of candle data for
-              the cryptocurrency up to the requested timepoint, and engineers
-              features from those datapoints.
+              that cryptocurrency up to and including the requested timepoint,
+              and engineers a feature vector from those datapoints.
             </PaperParagraph>
             <PaperParagraph>
-              Once features are created, it feeds them to the model and delivers
-              a PredictionResult object to our frontend for parsing.
+              The feature vector is passed to the loaded model and a prediction
+              is made. The prediction is then packaged into a PredictionResult
+              object along with other metadata.
+            </PaperParagraph>
+            <PaperParagraph>
+              Finally, the PredictionResult object is delivered to the requester
+              for parsing.
             </PaperParagraph>
             <PaperHeader headerLevel={3}>Continuous Delivery</PaperHeader>
             <PaperImage src="/images/continuous_delivery.png" />
             <PaperParagraph>
-              Our Prediction Service is deployed onto a Raspberry Pi, which runs
-              with an arm64 chip architecture.
+              Our Prediction Service is deployed onto a Raspberry Pi 5, which
+              runs using an arm64 microchip.
             </PaperParagraph>
             <PaperParagraph>
-              I wanted to keep the Prediction Service deployable across servers
-              with amd64 and arm64 chip architectures, and I decided to
-              implement this with a matrix build triggered inside of a Github
-              Action.
+              My overarching goal when designing this pipeline was to keep the
+              Prediction Service deployable across servers using both amd64 and
+              arm64 microchip architectures. This gives us a wide range of
+              deployment targets down the road as requirements change, and a lot
+              of ease in terms of deployment choices for any of the big cloud
+              providers.
             </PaperParagraph>
             <PaperParagraph>
-              When our source code passes our CI pipeline and a pull request is
-              merged into main, our CD pipeline triggers a workflow that builds
-              two Docker images concurrently.
+              I used a matrix build triggered inside of a GitHub Action to
+              concurrently build two separate Docker images: the first is
+              executable on an amd64 microchip, and the second can be executed
+              on an arm64 microchip.
             </PaperParagraph>
             <PaperParagraph>
-              In one virtual machine, we emulate an arm64 chip using QEMU and
-              build the Prediction Service into a Docker image that&apos;s
+              When new source code passes our CI pipeline and a pull request is
+              merged into our repository&apos;s main branch, our CD pipeline
+              triggers a workflow that spins up two virtual machines.
+            </PaperParagraph>
+            <PaperParagraph>
+              In one virtual machine, we emulate an arm64 microchip using QEMU
+              and build the Prediction Service into a Docker image that&apos;s
               executable on our Raspberry Pi.
             </PaperParagraph>
             <PaperParagraph>
-              Simultaneously, a separate Docker image is built on a regular
-              GitHub Azure virtual machine, which natively uses an amd64 chip.
-              We would use this image if we wanted to deploy the Prediction
-              Service to any of the standard cloud providers.
+              Simultaneously, on a regular GitHub Azure virtual machine (which
+              natively uses an amd64 chip) we build the Prediction Service into
+              a separate Docker image that&apos;s executable on amd64
+              microchips. This image can be used to deploy the Prediction
+              Service to any of the standard cloud providers in a relatively
+              straight forward way.
             </PaperParagraph>
             <PaperParagraph>
-              After each image is done building, they are pushed to our Docker
-              Hub repository, where we can easily pull them down from for
-              deployments.
+              Here, I built a Python script that pulls our models from the model
+              registry and downloads them into each virutal machine at build
+              time.
+            </PaperParagraph>
+            <PaperParagraph>
+              After each image holding our Prediction Service and models is done
+              building, they are pushed to our Docker Hub repository, where we
+              can easily pull them down for deployments.
             </PaperParagraph>
             <PaperHeader headerLevel={3}>Continuous Deployment</PaperHeader>
             <PaperImage src="/images/continuous_deployment.png" />
             <PaperParagraph>
+              It was a very cool opportunity to work with a Raspberry Pi,
+              because it gave us a ton of control over the infrastructure and
+              configuration choices for our server.
+            </PaperParagraph>
+            <PaperParagraph>
               To tie everything together I built a custom Continuous Deployment
-              pipeline for our Raspberry Pi.
+              pipeline for our Raspberry Pi that rolls out an updated container
+              anytime a new image is pushed to our Docker Hub repository.
             </PaperParagraph>
             <PaperParagraph>
-              The pipeline consists of a webhook endpoint written in Go and
-              Docker Compose yaml file.
+              First, we set up a tunnel into the Raspberry Pi using Cloudflare
+              that routes traffic from our domain into the server.
             </PaperParagraph>
             <PaperParagraph>
-              The Go endpoint listens for webhooks posted from Docker Hub
-              whenever we push a new arm64 image to our repository. We use
-              CloudFlare to tunnel traffic from the Internet into the Raspberry
-              Pi.
+              I built an endpoint with Go that gets deployed onto our server
+              along with our Prediction Service container. The Go endpoint
+              listens for webhooks posted from Docker Hub whenever we push a new
+              arm64 image to our repository.
             </PaperParagraph>
             <PaperParagraph>
-              When a POST request from Docker Hub is sent with a valid deploy
-              key, the Go endpoint triggers our script that pulls our new image
-              from Docker Hub, and rolls it out on the server.
+              When a POST request from Docker Hub is sent with a valid
+              deployment key, the Go endpoint triggers a script that pulls our
+              new image from Docker Hub, and rolls it out on the server. We used
+              Docker Compose to orchestrate container upgrades.
             </PaperParagraph>
             <PaperParagraph>
-              Using Docker Compose to orchestrate our container upgrades allows
-              us to get continuous availability during upgrades. We built our
-              tunnel, webhook endpoint, and the container itself into services
-              on the Raspberry Pi, which starts them on boot and restarts them
-              on any failures.
+              Finally, we built our tunnel, webhook endpoint, and the container
+              into services on the Raspberry Pi, which starts them on boot and
+              restarts them on any failures.
             </PaperParagraph>
           </div>
         </div>

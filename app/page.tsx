@@ -23,15 +23,15 @@ export default function About() {
                 <section>
                   {/* Page title */}
                   <FadeAnimation>
-                    <div className="flex flex-col sm:flex-row justify-start items-center mb-4">
+                    <div className="mb-4 flex flex-col items-center justify-start sm:flex-row">
                       <Image
                         src={ChristopherKeim}
                         alt="Christopher Keim"
                         width={300}
                         height={300}
-                        className="w-80 h-80 sm:h-28 sm:w-28 rounded-full object-cover"
+                        className="h-80 w-80 rounded-full object-cover sm:h-28 sm:w-28"
                       />
-                      <h2 className="sm:text-3xl text-3xl font-bold text-left sm:ml-4">
+                      <h2 className="text-3xl font-bold sm:ml-4 sm:text-4xl">
                         Christopher Keim
                       </h2>
                     </div>

@@ -195,7 +195,8 @@ export function ResearchPaper() {
               is also known as the &quot;Lasso&quot; (Least Absolute Shrinkage
               and Selection Operator). The Lasso Regressor is designed to
               prevent overfitting and to perform feature selection by
-              encouraging some of the model's coefficients to be exactly zero.
+              encouraging some of the model&apos;s coefficients to be exactly
+              zero.
             </PaperParagraph>
             <PaperParagraph>
               A core feature of Lasso Regression is that in addition to
@@ -439,9 +440,10 @@ export function ResearchPaper() {
             <PaperParagraph>
               Simultaneously, on a regular GitHub Azure virtual machine (which
               natively uses an amd64 chip) we build the Prediction Service into
-              a separate Docker image that's executable on amd64 microchips.
-              This image can be used to deploy the Prediction Service to any of
-              the standard cloud providers in a relatively straight forward way.
+              a separate Docker image that&apos;s executable on amd64
+              microchips. This image can be used to deploy the Prediction
+              Service to any of the standard cloud providers in a relatively
+              straight forward way.
             </PaperParagraph>
             <PaperParagraph>
               Here, I built a Python script that pulls our models from the model

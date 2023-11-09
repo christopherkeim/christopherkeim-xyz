@@ -190,7 +190,7 @@ export function ResearchPaper() {
               <b>Lasso Regressor</b>
             </PaperHeader>
             <PaperParagraph>
-              A Lasso Regressor a variation of linear regression that
+              A Lasso Regressor is a variation of linear regression that
               incorporates a regularization term called L1 regularization, which
               is also known as the &quot;Lasso&quot; (Least Absolute Shrinkage
               and Selection Operator). The Lasso Regressor is designed to
@@ -199,15 +199,15 @@ export function ResearchPaper() {
               zero.
             </PaperParagraph>
             <PaperParagraph>
-              A core feature of Lasso Regression is that in addition to
+              The core feature of Lasso Regression is that in addition to
               minimizing the least squares error (the difference between
-              predicted and actual values), the Lasso Regressor adds an L1
-              regularization term to the loss function.
+              predicted and actual values), an L1 regularization term is added
+              to the loss function as well.
             </PaperParagraph>
             <PaperParagraph>
               The L1 regularization term encourages some of the coefficient
               values to be exactly zero, resulting in a sparse model. This
-              effectively performs feature selection meaning that a Lasso
+              effectively performs feature selection, meaning that a Lasso
               Regressor can automatically identify and exclude less important
               features from the model. Here, this means our resulting model is
               as simple as it can be given we want it to have the most
@@ -231,12 +231,12 @@ export function ResearchPaper() {
               <b>Light Gradient Boosted Machine Regressor</b>
             </PaperHeader>
             <PaperParagraph>
-              A Light Gradient Boosted Machine (LightGBM) is a powerful and
-              efficient machine learning algorithm designed to be fast and
-              memory-efficient. LightGBM is a gradient boosting framework, which
-              means it builds a predictive model by combining the predictions of
-              multiple weaker models, typically decision trees - these are also
-              known as ensemble methods.
+              A Light Gradient Boosted Machine (LightGBM) is a powerful machine
+              learning algorithm designed to be fast and memory-efficient.
+              LightGBM is a gradient boosting framework, which means it builds a
+              predictive model by combining the predictions of multiple weaker
+              models, typically decision trees - these are also known as
+              ensemble methods.
             </PaperParagraph>
             <PaperParagraph>
               Ensemble methods are powerful, and often very successful in

@@ -43,16 +43,16 @@ export function Education() {
                 src={CopenhagenUniversityLogo}
                 width={24}
                 height={26}
-                alt="Copenhagen University"
+                alt="University of Copenhagen"
               />
             </div>
             <div className="space-y-1 pl-20">
               <div className="text-xs uppercase text-slate-500">Dec 2017</div>
               <div className="font-aspekta font-[650] text-slate-800 dark:text-slate-100">
-                Study Abroad Psychopharmacology
+                Study Abroad - Psychopharmacology
               </div>
               <div className="text-sm font-medium text-slate-800 dark:text-slate-100">
-                Copenhag University
+                University of Copenhagen
               </div>
             </div>
           </div>

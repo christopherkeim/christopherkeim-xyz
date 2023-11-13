@@ -6,19 +6,6 @@ type PredictionFormProps = {
   setPrediction: Dispatch<SetStateAction<Prediction | null>>;
 };
 
-// Example prediction response:
-// {
-//   "prediction": {
-//     "model": "cnn",
-//     "coin": "BTC-USD",
-//     "current_price": "34433.76",
-//     "prediction": "35680.61",
-//     "difference": "+1246.85",
-//     "time": "1698894000000",
-//     "request_timestamp": "1698894259695"
-//   }
-// }
-
 export type Prediction = {
   model: string;
   coin: string;
@@ -26,6 +13,7 @@ export type Prediction = {
   prediction: string;
   time: Date;
   request_timestamp: string;
+  difference: string;
 };
 
 export function PredictionForm({ setPrediction }: PredictionFormProps) {
@@ -52,7 +40,8 @@ export function PredictionForm({ setPrediction }: PredictionFormProps) {
 
       if (!response.ok)
         throw new Error(
-          "An error occurred while performing api fetch: " + response.statusText
+          "An error occurred while performing api fetch: " +
+            response.statusText,
         );
 
       const json: {
@@ -63,6 +52,7 @@ export function PredictionForm({ setPrediction }: PredictionFormProps) {
           prediction: string;
           time: string;
           request_timestamp: string;
+          difference: string;
         };
       } = await response.json();
 
@@ -80,6 +70,7 @@ export function PredictionForm({ setPrediction }: PredictionFormProps) {
         prediction: prediction.prediction,
         time: new Date(parseInt(prediction.time)),
         request_timestamp: prediction.request_timestamp,
+        difference: prediction.difference,
       });
     } catch (error) {
       console.error(error);

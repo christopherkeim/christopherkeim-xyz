@@ -26,6 +26,7 @@ export type Prediction = {
   prediction: string;
   time: Date;
   request_timestamp: string;
+  difference: string;
 };
 
 export function PredictionForm({ setPrediction }: PredictionFormProps) {
@@ -52,7 +53,8 @@ export function PredictionForm({ setPrediction }: PredictionFormProps) {
 
       if (!response.ok)
         throw new Error(
-          "An error occurred while performing api fetch: " + response.statusText
+          "An error occurred while performing api fetch: " +
+            response.statusText,
         );
 
       const json: {
@@ -63,6 +65,7 @@ export function PredictionForm({ setPrediction }: PredictionFormProps) {
           prediction: string;
           time: string;
           request_timestamp: string;
+          difference: string;
         };
       } = await response.json();
 
@@ -80,6 +83,7 @@ export function PredictionForm({ setPrediction }: PredictionFormProps) {
         prediction: prediction.prediction,
         time: new Date(parseInt(prediction.time)),
         request_timestamp: prediction.request_timestamp,
+        difference: prediction.difference,
       });
     } catch (error) {
       console.error(error);

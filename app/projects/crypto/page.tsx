@@ -3,6 +3,7 @@ import { ResearchPaper } from "@/components/Projects/Crypto/ResearchPaper";
 import { PaperHeader } from "@/components/Projects/Crypto/PaperHeader";
 import { PaperImage } from "@/components/Projects/Crypto/PaperImage";
 import { PaperParagraph } from "@/components/Projects/Crypto/PaperParagraph";
+import { ResearchOrderedList } from "@/components/Projects/Crypto/ResearchOrderedList";
 
 export const metadata = {
   title: "Crypto Real Time Inference",
@@ -49,50 +50,46 @@ export default function CryptoPage() {
           project. Cryptocurrency candles are pulled from Coinbase using their
           public API.
         </PaperParagraph>
-        <PaperParagraph>
+        <PaperParagraph className="mb-0">
           The application consists of eight components:
-          <ol
-            className="my-4 flex list-decimal flex-wrap px-6"
-            type="1"
-            start={1}
-          >
-            <li className="px-3">
-              Continuous Integration Pipeline: for source code integration
-            </li>
-            <li className="px-3">
-              Data Engineering Pipeline: that pulls raw cryptocurrency OHLC
-              (&quot;open&quot;, &quot;high&quot;, &quot;low&quot;,
-              &quot;close&quot;) candle data for a given cryptocurrency from
-              Coinbase
-            </li>
-            <li className="px-3">
-              Feature Engineering Pipeline: that builds
-              supervised-machine-learning-ready datasets from this raw data
-            </li>
-            <li className="px-3">
-              Training Pipeline: that trains both machine learning and deep
-              learning models, evaluates them, and pushes them up to our model
-              registry
-            </li>
-            <li className="px-3">
-              Prediction Service: that serves model predictions using FastAPI
-            </li>
-            <li className="px-3">
-              Continuous Delivery Pipeline: that pulls our models from the
-              registry, concurrently builds the prediction service into two
-              Docker images (targeting x86_64 and arm64 chip architectures), and
-              pushes them to Docker Hub
-            </li>
-            <li className="px-3">
-              Continuous Deployment Pipeline: with a web server written in Go
-              that listens for webhooks from Docker Hub and deploys our
-              prediction service onto a Raspberry Pi
-            </li>
-            <li className="px-3">
-              Frontend: built with Next.js, which you&apos;re using to view this
-            </li>
-          </ol>
         </PaperParagraph>
+        <ResearchOrderedList>
+          <li className="px-3">
+            Continuous Integration Pipeline: for source code integration
+          </li>
+          <li className="px-3">
+            Data Engineering Pipeline: that pulls raw cryptocurrency OHLC
+            (&quot;open&quot;, &quot;high&quot;, &quot;low&quot;,
+            &quot;close&quot;) candle data for a given cryptocurrency from
+            Coinbase
+          </li>
+          <li className="px-3">
+            Feature Engineering Pipeline: that builds
+            supervised-machine-learning-ready datasets from this raw data
+          </li>
+          <li className="px-3">
+            Training Pipeline: that trains both machine learning and deep
+            learning models, evaluates them, and pushes them up to our model
+            registry
+          </li>
+          <li className="px-3">
+            Prediction Service: that serves model predictions using FastAPI
+          </li>
+          <li className="px-3">
+            Continuous Delivery Pipeline: that pulls our models from the
+            registry, concurrently builds the prediction service into two Docker
+            images (targeting x86_64 and arm64 chip architectures), and pushes
+            them to Docker Hub
+          </li>
+          <li className="px-3">
+            Continuous Deployment Pipeline: with a web server written in Go that
+            listens for webhooks from Docker Hub and deploys our prediction
+            service onto a Raspberry Pi
+          </li>
+          <li className="px-3">
+            Frontend: built with Next.js, which you&apos;re using to view this
+          </li>
+        </ResearchOrderedList>
         <PaperParagraph>
           This project natively makes predictions for both Bitcoin and Ethereum
           pricepoints, though the source code supports any cryptocurrency that
@@ -119,40 +116,36 @@ export default function CryptoPage() {
           dataset) and a target variable (&quot;y&quot; dataset) that we can
           train a model to make predictions with.
         </PaperParagraph>
-        <PaperParagraph>
+        <PaperParagraph className="mb-0">
           The preprocessing and feature engineering steps taken can be broken
           down as:
-          <ol
-            className="my-4 flex list-decimal flex-wrap px-6"
-            type="1"
-            start={1}
-          >
-            <li className="px-3">
-              Set &quot;time&quot; as the index and sort the dataset upfront by
-              this index before lag features are generated
-            </li>
-            <li className="px-3">
-              Generate &quot;Lag&quot; X features (&quot;price_i_hour_ago&quot;
-              and &quot;volume_i_hour_ago&quot; for past 24 hours) and y target
-              (&quot;target_price_next_hour&quot;)
-            </li>
-            <li className="px-3">
-              Compute window features for price and volume (moving average,
-              moving standard deviation of past 24 hours)
-            </li>
-            <li className="px-3">
-              Calculate technical indicators (price percentage return, RSI)
-            </li>
-            <li className="px-3">
-              Split the full preprocessed dataset into an X features dataset and
-              a y target dataset
-            </li>
-            <li className="px-3">Fit a scaler model to the X data</li>
-            <li className="px-3">
-              Version preprocessed datasets and X scaler model in model registry
-            </li>
-          </ol>
         </PaperParagraph>
+        <ResearchOrderedList>
+          <li className="px-3">
+            Set &quot;time&quot; as the index and sort the dataset upfront by
+            this index before lag features are generated
+          </li>
+          <li className="px-3">
+            Generate &quot;Lag&quot; X features (&quot;price_i_hour_ago&quot;
+            and &quot;volume_i_hour_ago&quot; for past 24 hours) and y target
+            (&quot;target_price_next_hour&quot;)
+          </li>
+          <li className="px-3">
+            Compute window features for price and volume (moving average, moving
+            standard deviation of past 24 hours)
+          </li>
+          <li className="px-3">
+            Calculate technical indicators (price percentage return, RSI)
+          </li>
+          <li className="px-3">
+            Split the full preprocessed dataset into an X features dataset and a
+            y target dataset
+          </li>
+          <li className="px-3">Fit a scaler model to the X data</li>
+          <li className="px-3">
+            Version preprocessed datasets and X scaler model in model registry
+          </li>
+        </ResearchOrderedList>
         <PaperParagraph>
           At the end of this process we have an X features dataset that contains
           68 features and a y target dataset that contains our prediction target
@@ -299,16 +292,18 @@ export default function CryptoPage() {
           Neural network models were built using TensorFlow. With some
           experimenting I found that the Adam optimizer worked best. A learning
           rate of α = 0.001 was used. The CNN architecture I selected was:
-          <ol className="my-4 list-decimal px-6" type="1" start={1}>
-            <li className="px-3">InputLayer((n_features, 1)) </li>
-            <li className="px-3">Conv1D(256, kernel_size=4)</li>
-            <li className="px-3">Flatten()</li>
-            <li className="px-3">Dense(128, activation=&quot;relu&quot;)</li>
-            <li className="px-3">Activation(&quot;relu&quot;)</li>
-            <li className="px-3">Dense(128, activation=&quot;linear&quot;)</li>
-            <li className="px-3">Activation(&quot;relu&quot;)</li>
-            <li className="px-3">Dense(1, activation=&quot;linear&quot;)</li>
-          </ol>
+        </PaperParagraph>
+        <ResearchOrderedList>
+          <li className="px-3">InputLayer((n_features, 1))</li>
+          <li className="px-3">Conv1D(256, kernel_size=4)</li>
+          <li className="px-3">Flatten()</li>
+          <li className="px-3">Dense(128, activation=&quot;relu&quot;)</li>
+          <li className="px-3">Activation(&quot;relu&quot;)</li>
+          <li className="px-3">Dense(128, activation=&quot;linear&quot;)</li>
+          <li className="px-3">Activation(&quot;relu&quot;)</li>
+          <li className="px-3">Dense(1, activation=&quot;linear&quot;)</li>
+        </ResearchOrderedList>
+        <PaperParagraph>
           Initial testing was run for a maximum of 20 epochs. After architecture
           selection and hyperparameter tuning, we used the best models saved
           from 300 epochs of training.

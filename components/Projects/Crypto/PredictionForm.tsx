@@ -6,19 +6,6 @@ type PredictionFormProps = {
   setPrediction: Dispatch<SetStateAction<Prediction | null>>;
 };
 
-// Example prediction response:
-// {
-//   "prediction": {
-//     "model": "cnn",
-//     "coin": "BTC-USD",
-//     "current_price": "34433.76",
-//     "prediction": "35680.61",
-//     "difference": "+1246.85",
-//     "time": "1698894000000",
-//     "request_timestamp": "1698894259695"
-//   }
-// }
-
 export type Prediction = {
   model: string;
   coin: string;

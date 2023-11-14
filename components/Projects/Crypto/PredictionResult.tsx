@@ -26,7 +26,7 @@ export function PredictionResult({ prediction }: PredictionResultProps) {
                 ? prediction.difference.startsWith("-")
                   ? "red"
                   : "green"
-                : "white"
+                : "inherit"
             }
           />
           <PredictionRow
@@ -59,7 +59,7 @@ export function PredictionResult({ prediction }: PredictionResultProps) {
                 ? prediction.difference.startsWith("-")
                   ? "red"
                   : "green"
-                : "white"
+                : "inherit"
             }
           />
           <PredictionRow

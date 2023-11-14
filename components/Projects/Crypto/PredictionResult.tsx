@@ -1,6 +1,7 @@
 import { Prediction } from "./PredictionForm";
 import { PredictionRow } from "./PredictionRow";
 import { PredictionTable } from "./PredictionTable";
+import NonSSRWrapper from "@/components/NonSSRWrapper";
 
 type PredictionResultProps = {
   prediction: Prediction | null;
@@ -15,56 +16,58 @@ export function PredictionResult({ prediction }: PredictionResultProps) {
           {prediction?.coin.startsWith("E") ? "Ethereum" : "Bitcoin"} Prediction
         </b>
       </p>
-      <PredictionTable>
-        <PredictionRow
-          title="Prediction:"
-          value={prediction?.prediction ? `$${prediction.prediction}` : "$0"}
-          valueColor={
-            prediction
-              ? prediction.difference.startsWith("-")
-                ? "red"
-                : "green"
-              : "white"
-          }
-        />
-        <PredictionRow
-          title="Time:"
-          value={
-            prediction?.time
-              ? prediction.time.toLocaleTimeString()
-              : "Choose a time"
-          }
-        />
-        <PredictionRow
-          title="Current Price:"
-          value={
-            prediction?.current_price ? `$${prediction.current_price}` : "$0"
-          }
-        />
-        <PredictionRow
-          title="Difference:"
-          value={
-            prediction?.difference
-              ? `${
-                  prediction.difference.slice(0, 1) +
-                  "$" +
-                  prediction.difference.slice(1)
-                }`
-              : "$0"
-          }
-          valueColor={
-            prediction
-              ? prediction.difference.startsWith("-")
-                ? "red"
-                : "green"
-              : "white"
-          }
-        />
-        <PredictionRow
-          title="Model:"
-          value={prediction?.model?.toUpperCase() ?? "Choose a model"}
-        />
-      </PredictionTable>
+      <NonSSRWrapper>
+        <PredictionTable>
+          <PredictionRow
+            title="Prediction:"
+            value={prediction?.prediction ? `$${prediction.prediction}` : "$0"}
+            valueColor={
+              prediction
+                ? prediction.difference.startsWith("-")
+                  ? "red"
+                  : "green"
+                : "white"
+            }
+          />
+          <PredictionRow
+            title="Time:"
+            value={
+              prediction?.time
+                ? prediction.time.toLocaleTimeString()
+                : "Choose a time"
+            }
+          />
+          <PredictionRow
+            title="Current Price:"
+            value={
+              prediction?.current_price ? `$${prediction.current_price}` : "$0"
+            }
+          />
+          <PredictionRow
+            title="Difference:"
+            value={
+              prediction?.difference
+                ? `${
+                    prediction.difference.slice(0, 1) +
+                    "$" +
+                    prediction.difference.slice(1)
+                  }`
+                : "$0"
+            }
+            valueColor={
+              prediction
+                ? prediction.difference.startsWith("-")
+                  ? "red"
+                  : "green"
+                : "white"
+            }
+          />
+          <PredictionRow
+            title="Model:"
+            value={prediction?.model?.toUpperCase() ?? "Choose a model"}
+          />
+        </PredictionTable>
+      </NonSSRWrapper>
     </div>
   );
 }

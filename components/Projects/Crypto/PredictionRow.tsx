@@ -12,7 +12,7 @@ export function PredictionRow({
       <th className="pe-4">
         <span className="">{title}</span>
       </th>
-      <td className="ps-4 md:ps-8">
+      <td className="ps-4 md:ps-10">
         <span className={`text-${valueColor}-500`}>{value}</span>
       </td>
     </tr>

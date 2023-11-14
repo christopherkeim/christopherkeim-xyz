@@ -9,11 +9,9 @@ export function PredictionRow({
 }) {
   return (
     <tr className="">
-      <th className="pe-4">
-        <span className="">{title}</span>
-      </th>
-      <td className="ps-4 md:ps-10">
-        <span className={`text-${valueColor}-500`}>{value}</span>
+      <th className="pe-4">{title}</th>
+      <td className="ps-4 md:ps-10" style={{ color: valueColor }}>
+        {value}
       </td>
     </tr>
   );

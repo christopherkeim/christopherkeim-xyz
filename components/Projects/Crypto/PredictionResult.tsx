@@ -33,7 +33,7 @@ export function PredictionResult({ prediction }: PredictionResultProps) {
         />
         <PredictionRow
           title="Difference:"
-          value={prediction?.difference ? `$${prediction.difference}` : "$0"}
+          value={prediction?.difference ? `${prediction.difference.slice(0, 1) + "$" + prediction.difference.slice(1)}` : "$0"}
           valueColor={prediction?.difference.startsWith("-") ? "red" : "green"}
         />
         <PredictionRow

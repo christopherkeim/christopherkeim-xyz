@@ -1,11 +1,11 @@
 export function PredictionRow({
   title,
   value,
-  valueColor = "white",
+  valueColor = "inherit",
 }: {
   title: string;
   value: string;
-  valueColor?: "white" | "green" | "red";
+  valueColor?: "inherit" | "green" | "red";
 }) {
   return (
     <tr className="">

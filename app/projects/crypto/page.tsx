@@ -177,7 +177,7 @@ export default function CryptoPage() {
           (LGBMRegressor) models.
         </PaperParagraph>
         <PaperHeader headerLevel={5}>
-          <b>Lasso Regressor</b>
+          <b className="">Lasso Regressor</b>
         </PaperHeader>
         <PaperParagraph>
           A Lasso Regressor is a variation of linear regression that
@@ -338,31 +338,29 @@ export default function CryptoPage() {
           Modeling recommendations based on these experiments and used in this
           application can be seen below.
         </PaperParagraph>
-        <PaperParagraph>
-          <b>Machine Learning:</b>
-          <ul className="my-4 flex list-disc flex-wrap px-6">
-            <li className="px-3">
-              ✅ Lasso: fast, powerful, simple, and accurate -{" "}
-              <b>primary recommendation</b>
-            </li>
-            <li className="px-3">
-              🔵 LightGBM: most efficient ensemble method, most likely requires
-              further custom feature engineering
-            </li>
-          </ul>
-          <b>Deep Learning:</b>
-          <ul className="my-4 flex list-disc flex-wrap px-6">
-            <li className="px-3">
-              ✅ Convolutional Neural Network: fast, powerful, extremely
-              lightweight, and accurate - <b>primary recommendation</b>
-            </li>
-            <li className="px-3">
-              ❌ Long Short-Term Memory Neural Network: complex, slow, and
-              doesn&apos;t tolerate current features well; not recommended for
-              use in current project
-            </li>
-          </ul>
-        </PaperParagraph>
+        <b>Machine Learning:</b>
+        <ul className="flex list-disc flex-wrap px-6">
+          <li className="px-3">
+            ✅ Lasso: fast, powerful, simple, and accurate -{" "}
+            <b>primary recommendation</b>
+          </li>
+          <li className="px-3">
+            🔵 LightGBM: most efficient ensemble method, most likely requires
+            further custom feature engineering
+          </li>
+        </ul>
+        <b>Deep Learning:</b>
+        <ul className="flex list-disc flex-wrap px-6">
+          <li className="px-3">
+            ✅ Convolutional Neural Network: fast, powerful, extremely
+            lightweight, and accurate - <b>primary recommendation</b>
+          </li>
+          <li className="px-3">
+            ❌ Long Short-Term Memory Neural Network: complex, slow, and
+            doesn&apos;t tolerate current features well; not recommended for use
+            in current project
+          </li>
+        </ul>
         <PaperHeader headerLevel={3}>Prediction Service</PaperHeader>
         <PaperImage src="/images/prediction.png" />
         <PaperParagraph>

@@ -74,7 +74,7 @@ export default function Contact() {
             <div className="mx-auto max-w-3xl pb-8 text-center">
               <h1 className="h1 mb-4">Get in touch</h1>
               <p className="text-xl text-gray-600 dark:text-gray-400">
-                Just fill out this short form and I'll get back to you!
+                Just fill out this short form and I&apos;ll get back to you!
               </p>
             </div>
 

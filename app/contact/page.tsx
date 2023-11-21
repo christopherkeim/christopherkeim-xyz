@@ -3,11 +3,11 @@ import { useState, useRef } from "react";
 
 export default function Contact() {
   const [name, setName] = useState("");
-  const nameRef = useRef<HTMLInputElement>(null);
+  const nameRef = useRef<string>("");
   const [email, setEmail] = useState("");
-  const emailRef = useRef<HTMLInputElement>(null);
+  const emailRef = useRef<string>("");
   const [message, setMessage] = useState("");
-  const messageRef = useRef<HTMLTextAreaElement>(null);
+  const messageRef = useRef<string>("");
   return (
     <>
       <section className="relative">
@@ -36,6 +36,11 @@ export default function Contact() {
                     type="text"
                     className="form-input w-full"
                     placeholder="Enter your name"
+                    value={name}
+                    onChange={(event) => {
+                      setName(event.currentTarget.value);
+                      nameRef.current = event.currentTarget.value;
+                    }}
                     required
                   />
                 </div>
@@ -53,6 +58,11 @@ export default function Contact() {
                     type="tel"
                     className="form-input w-full"
                     placeholder="yourname@example.com"
+                    value={email}
+                    onChange={(event) => {
+                      setEmail(event.currentTarget.value);
+                      emailRef.current = event.currentTarget.value;
+                    }}
                     required
                   />
                 </div>
@@ -71,7 +81,12 @@ export default function Contact() {
                     id="message"
                     rows={4}
                     className="form-textarea w-full"
-                    placeholder="What do you want to build with Appy?"
+                    placeholder="Make sure to leave me a message!"
+                    value={message}
+                    onChange={(event) => {
+                      setMessage(event.currentTarget.value);
+                      messageRef.current = event.currentTarget.value;
+                    }}
                     required
                   ></textarea>
                 </div>

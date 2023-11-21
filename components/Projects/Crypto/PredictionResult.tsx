@@ -129,7 +129,6 @@ export function PredictionResult({ prediction }: PredictionResultProps) {
               yPadding: 10,
               callbacks: {
                 label: (tooltipItem: any) => {
-                  console.log(tooltipItem);
                   return `Price: ${new Intl.NumberFormat("en-US", {
                     style: "currency",
                     currency: "USD",

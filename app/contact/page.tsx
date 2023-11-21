@@ -72,7 +72,7 @@ export default function Contact() {
           <div className="pb-12 pt-32 md:pb-20 md:pt-40">
             {/* Page header */}
             <div className="mx-auto max-w-3xl pb-8 text-center">
-              <h1 className="h1 mb-4 font-red-hat-display">Get in touch</h1>
+              <h1 className="h1 mb-4">Get in touch</h1>
               <p className="text-xl text-gray-600 dark:text-gray-400">
                 Just fill out this short form and I'll get back to you!
               </p>

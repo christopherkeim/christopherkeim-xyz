@@ -14,6 +14,7 @@ export type Prediction = {
   time: Date;
   request_timestamp: string;
   difference: string;
+  prices_24_hours: number[];
 };
 
 export function PredictionForm({ setPrediction }: PredictionFormProps) {
@@ -53,6 +54,7 @@ export function PredictionForm({ setPrediction }: PredictionFormProps) {
           time: string;
           request_timestamp: string;
           difference: string;
+          past_24_hour_prices: number[];
         };
       } = await response.json();
 
@@ -71,6 +73,7 @@ export function PredictionForm({ setPrediction }: PredictionFormProps) {
         time: new Date(parseInt(prediction.time)),
         request_timestamp: prediction.request_timestamp,
         difference: prediction.difference,
+        prices_24_hours: prediction.past_24_hour_prices,
       });
     } catch (error) {
       console.error(error);

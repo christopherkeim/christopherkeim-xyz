@@ -1,3 +1,5 @@
+import { createTransport } from "nodemailer";
+
 export async function POST(request: Request) {
   try {
     const body = await request.json();
@@ -30,10 +32,25 @@ export async function POST(request: Request) {
       );
     }
 
-    console.log(`Name: ${name}, Email: ${email}, Message: ${message}`);
+    const transporter = createTransport({
+      host: "smtp.gmail.com",
+      port: 465,
+      secure: true,
+      auth: {
+        user: process.env.NODEMAILER_USER,
+        pass: process.env.NODEMAILER_PASSWORD,
+      },
+    });
 
-    const data = { serverMessage: "Message received!" };
-    return Response.json(data);
+    const info = await transporter.sendMail({
+      from: `"ChristoperKeim.xyz - Form Handler 👻" <${process.env.NODEMAILER_USER}>`, // sender address
+      to: `"${process.env.CONTACT_FORM_RECIPIENT}"`, // list of receivers
+      subject: `Contact Form ✔ - ${name}`, // Subject line
+      text: `From: ${name}\nEmail: ${email}\n\nMessage: ${message}`,
+      html: `<p>Name: ${name}<br>Email: ${email}</p><p>Message: ${message}</p>`,
+    });
+
+    return Response.json(info, { status: 200 });
   } catch (error) {
     return Response.json({ error: error }, { status: 500 });
   }

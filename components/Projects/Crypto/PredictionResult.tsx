@@ -67,16 +67,12 @@ export function PredictionResult({ prediction }: PredictionResultProps) {
     return new Chart(context, options);
   }
 
-  function createHours(timestamp: number) {
-    console.log(timestamp);
-    const hour = new Date(timestamp).getHours();
-
+  function createHours(hour: number) {
     const hours: number[] = [];
 
-    for (let i = 1; i < 25; i++) {
+    for (let i = 0; i < 25; i++) {
       hours.push((hour + i) % 24);
     }
-    console.log("Hours are: ", hours);
     return hours;
   }
   return (

@@ -4,7 +4,7 @@ import { useEffect } from "react";
 
 import "./css/style.css";
 
-import { Inter, Red_Hat_Display } from "next/font/google";
+import { Inter } from "next/font/google";
 import { Theme } from "./ThemeProvider";
 
 import AOS from "aos";
@@ -16,12 +16,6 @@ import { Footer } from "@/components/ui/Footer";
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
-  display: "swap",
-});
-
-const redhat = Red_Hat_Display({
-  subsets: ["latin"],
-  variable: "--font-red-hat-display",
   display: "swap",
 });
 
@@ -43,10 +37,10 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       {/* suppressHydrationWarning: https://github.com/vercel/next.js/issues/44343 */}
       <body
-        className={`${inter.variable} ${redhat.variable} font-inter antialiased bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100 tracking-tight`}
+        className={`${inter.variable} bg-white font-inter tracking-tight text-gray-900 antialiased dark:bg-gray-900 dark:text-gray-100`}
       >
         <Theme>
-          <div className="flex flex-col min-h-screen overflow-hidden">
+          <div className="flex min-h-screen flex-col overflow-hidden">
             <Header />
             <main className="grow">{children}</main>
             <Footer />

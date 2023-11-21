@@ -84,7 +84,6 @@ module.exports = {
       },
       fontFamily: {
         inter: ["var(--font-inter)", "sans-serif"],
-        "red-hat-display": ["var(--font-red-hat-display)", "sans-serif"],
       },
       fontSize: {
         xs: ["0.75rem", { lineHeight: "1.5" }],

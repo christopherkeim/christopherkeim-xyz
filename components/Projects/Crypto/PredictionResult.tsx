@@ -50,11 +50,98 @@ export function PredictionResult({ prediction }: PredictionResultProps) {
           labels: createHours(prediction.time.getHours()),
           datasets: [
             {
-              label: "Charts Title",
+              label: `${
+                prediction?.coin.startsWith("E") ? "Ethereum" : "Bitcoin"
+              } Prices`,
               data: [...prediction.prices_24_hours, prediction.prediction],
+              pointBorderColor: (context: any) => {
+                const index = context.dataIndex;
+                if (index !== 24) {
+                  return "rgba(0, 0, 0, 0.1)";
+                }
+                return `${
+                  prediction.difference.startsWith("-") ? "red" : "green"
+                }`;
+              },
+              pointBackgroundColor: (context: any) => {
+                const index = context.dataIndex;
+                if (index !== 24) {
+                  return "rgba(54, 162, 235, 0.3)";
+                }
+                return `${
+                  prediction.difference.startsWith("-")
+                    ? "rgba(255, 99, 132, 0.3)"
+                    : "rgba(75, 192, 192, 0.3)"
+                }`;
+              },
+              segment: {
+                borderColor: (context: any) => {
+                  const p0Index = context.p0DataIndex;
+                  const p1Index = context.p1DataIndex;
+                  if (p0Index !== 23 && p1Index !== 24) {
+                    return "rgb(54, 162, 235)";
+                  }
+                  return `${
+                    prediction.difference.startsWith("-") ? "red" : "green"
+                  }`;
+                },
+              },
               borderWidth: 1,
             },
           ],
+        },
+
+        options: {
+          scales: {
+            y: {
+              title: {
+                display: true,
+                text: "Price ($USD)",
+              },
+            },
+            x: {
+              title: {
+                display: true,
+                text: "Time (Hours)",
+              },
+            },
+          },
+          plugins: {
+            title: {
+              display: true,
+              text: `${
+                prediction?.coin.startsWith("E") ? "Ethereum" : "Bitcoin"
+              } Price vs. Time`,
+            },
+            legend: {
+              display: false,
+            },
+            tooltip: {
+              displayColors: false,
+
+              titleFont: {
+                size: 16,
+              },
+              bodyFont: {
+                size: 14,
+              },
+              xPadding: 10,
+              yPadding: 10,
+              callbacks: {
+                label: (tooltipItem: any) => {
+                  console.log(tooltipItem);
+                  return `Price: ${new Intl.NumberFormat("en-US", {
+                    style: "currency",
+                    currency: "USD",
+                  }).format(tooltipItem.parsed.y)}`;
+                },
+                title: (tooltipItem: any) => {
+                  const x = tooltipItem[0].label;
+                  return `Hour: ${x}`;
+                },
+              },
+            },
+          },
         },
       };
 
@@ -76,7 +163,7 @@ export function PredictionResult({ prediction }: PredictionResultProps) {
     return hours;
   }
   return (
-    <div className="mt-16 flex h-fit w-full flex-col justify-center gap-5 rounded border border-gray-300 px-5 py-4 dark:border dark:border-gray-800 dark:bg-zinc-800 md:mt-0">
+    <div className="mt-16 flex h-full w-full flex-col justify-center gap-5 rounded border border-gray-300 px-5 py-4 dark:border dark:border-gray-800 dark:bg-zinc-800 md:mt-0">
       {/* TODO: add animation to load content */}
       <p className="text-center text-2xl">
         <b>
@@ -87,7 +174,14 @@ export function PredictionResult({ prediction }: PredictionResultProps) {
         <PredictionTable>
           <PredictionRow
             title="Prediction:"
-            value={prediction?.prediction ? `$${prediction.prediction}` : "$0"}
+            value={
+              prediction?.prediction
+                ? `${new Intl.NumberFormat("en-US", {
+                    style: "currency",
+                    currency: "USD",
+                  }).format(Number(prediction.prediction))}`
+                : "$0"
+            }
             valueColor={
               prediction
                 ? prediction.difference.startsWith("-")
@@ -107,7 +201,12 @@ export function PredictionResult({ prediction }: PredictionResultProps) {
           <PredictionRow
             title="Current Price:"
             value={
-              prediction?.current_price ? `$${prediction.current_price}` : "$0"
+              prediction?.current_price
+                ? `${new Intl.NumberFormat("en-US", {
+                    style: "currency",
+                    currency: "USD",
+                  }).format(Number(prediction.current_price))}`
+                : "$0"
             }
           />
           <PredictionRow
@@ -116,8 +215,10 @@ export function PredictionResult({ prediction }: PredictionResultProps) {
               prediction?.difference
                 ? `${
                     prediction.difference.slice(0, 1) +
-                    "$" +
-                    prediction.difference.slice(1)
+                    new Intl.NumberFormat("en-US", {
+                      style: "currency",
+                      currency: "USD",
+                    }).format(Number(prediction.difference.slice(1)))
                   }`
                 : "$0"
             }

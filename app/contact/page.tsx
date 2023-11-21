@@ -1,13 +1,56 @@
 "use client";
 import { useState, useRef } from "react";
 
+type ValidationErrors = {
+  name?: string;
+  email?: string;
+  message?: string;
+};
+
 export default function Contact() {
   const [name, setName] = useState("");
-  const nameRef = useRef<string>("");
+  //   const nameRef = useRef<string>("");
   const [email, setEmail] = useState("");
-  const emailRef = useRef<string>("");
+  //   const emailRef = useRef<string>("");
   const [message, setMessage] = useState("");
-  const messageRef = useRef<string>("");
+  //   const messageRef = useRef<string>("");
+  const [errors, setErrors] = useState<ValidationErrors>({});
+  const [isFormValid, setIsFormValid] = useState<boolean>(false);
+
+  function validateForm() {
+    const errors: ValidationErrors = {};
+
+    if (!name) {
+      errors.name = "Name is required";
+    }
+
+    if (!email) {
+      errors.email = "Email is required.";
+    } else if (!/\S+@\S+\.\S+/.test(email)) {
+      errors.email = "Email is invalid.";
+    }
+
+    if (!message) {
+      errors.message = "Message is required.";
+    } else if (message.length < 60) {
+      errors.message = "Message must be at least 60 characters.";
+    }
+
+    setErrors(errors);
+    setIsFormValid(Object.keys(errors).length === 0);
+  }
+
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    validateForm();
+    console.log("Name: ", name);
+    console.log("Email: ", email);
+    console.log("Message: ", message);
+    if (isFormValid) {
+      // Send the form data to the server here...
+      alert("Form is valid, and ready to send!");
+    }
+  }
   return (
     <>
       <section className="relative">
@@ -22,15 +65,22 @@ export default function Contact() {
             </div>
 
             {/* Contact form */}
-            <form className="mx-auto max-w-xl">
+            <form className="mx-auto max-w-xl" onSubmit={handleSubmit}>
               <div className="-mx-3 mb-5 flex flex-wrap">
                 <div className="w-full px-3">
-                  <label
-                    className="mb-1 block text-sm font-medium text-gray-800 dark:text-gray-300"
-                    htmlFor="name"
-                  >
-                    Name <span className="text-red-600">*</span>
-                  </label>
+                  <div className="mb-1 flex items-center justify-between">
+                    <label
+                      className="mb-1 block text-sm font-medium text-gray-800 dark:text-gray-300"
+                      htmlFor="name"
+                    >
+                      Name <span className="text-red-600">*</span>
+                    </label>
+                    {errors.name && (
+                      <span className="text-sm text-red-600">
+                        {errors.name}
+                      </span>
+                    )}
+                  </div>
                   <input
                     id="name"
                     type="text"
@@ -39,20 +89,26 @@ export default function Contact() {
                     value={name}
                     onChange={(event) => {
                       setName(event.currentTarget.value);
-                      nameRef.current = event.currentTarget.value;
+                      //   nameRef.current = event.currentTarget.value;
                     }}
-                    required
                   />
                 </div>
               </div>
               <div className="-mx-3 mb-5 flex flex-wrap">
                 <div className="w-full px-3">
-                  <label
-                    className="mb-1 block text-sm font-medium text-gray-800 dark:text-gray-300"
-                    htmlFor="email"
-                  >
-                    Email <span className="text-red-600">*</span>
-                  </label>
+                  <div className="mb-1 flex items-center justify-between">
+                    <label
+                      className="mb-1 block text-sm font-medium text-gray-800 dark:text-gray-300"
+                      htmlFor="email"
+                    >
+                      Email <span className="text-red-600">*</span>
+                    </label>
+                    {errors.email && (
+                      <span className="text-sm text-red-600">
+                        {errors.email}
+                      </span>
+                    )}
+                  </div>
                   <input
                     id="email"
                     type="tel"
@@ -61,9 +117,8 @@ export default function Contact() {
                     value={email}
                     onChange={(event) => {
                       setEmail(event.currentTarget.value);
-                      emailRef.current = event.currentTarget.value;
+                      //   emailRef.current = event.currentTarget.value;
                     }}
-                    required
                   />
                 </div>
               </div>
@@ -76,6 +131,11 @@ export default function Contact() {
                     >
                       Message <span className="text-red-600">*</span>
                     </label>
+                    {errors.message && (
+                      <span className="text-sm text-red-600">
+                        {errors.message}
+                      </span>
+                    )}
                   </div>
                   <textarea
                     id="message"
@@ -85,9 +145,8 @@ export default function Contact() {
                     value={message}
                     onChange={(event) => {
                       setMessage(event.currentTarget.value);
-                      messageRef.current = event.currentTarget.value;
+                      //   messageRef.current = event.currentTarget.value;
                     }}
-                    required
                   ></textarea>
                 </div>
               </div>

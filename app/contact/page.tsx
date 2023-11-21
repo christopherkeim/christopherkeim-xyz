@@ -38,21 +38,31 @@ export default function Contact() {
     return Object.keys(errors).length === 0;
   }
 
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const formIsValid = validateForm();
-    console.log("Name: ", name);
-    console.log("Email: ", email);
-    console.log("Message: ", message);
-    console.log(formIsValid);
+
     if (formIsValid) {
-      // Send the form data to the server here...
-      console.log("Form is valid, and ready to send!");
       setSubmitting(true);
-      setTimeout(() => {
+      try {
+        const response = await fetch("/api/contact", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          mode: "no-cors",
+          body: JSON.stringify({
+            name,
+            email,
+            message,
+          }),
+        });
+        if (response.ok) setSubmitted(true);
         setSubmitting(false);
-        setSubmitted(true);
-      }, 2000);
+      } catch (error) {
+        setSubmitting(false);
+        setSubmitted(false);
+      }
     }
   }
   return (

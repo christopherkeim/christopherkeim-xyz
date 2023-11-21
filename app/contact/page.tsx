@@ -1,9 +1,13 @@
-export const metadata = {
-  title: "Contact - Christopher Keim",
-  description: "Contact form for Christopher Keim.",
-};
+"use client";
+import { useState, useRef } from "react";
 
 export default function Contact() {
+  const [name, setName] = useState("");
+  const nameRef = useRef<HTMLInputElement>(null);
+  const [email, setEmail] = useState("");
+  const emailRef = useRef<HTMLInputElement>(null);
+  const [message, setMessage] = useState("");
+  const messageRef = useRef<HTMLTextAreaElement>(null);
   return (
     <>
       <section className="relative">

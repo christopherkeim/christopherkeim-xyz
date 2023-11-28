@@ -7,8 +7,8 @@ import InstacartProjectIcon from "@/public/images/instacart_ba.svg";
 import FetalHealthClassificationIcon from "@/public/images/fhc.svg";
 
 export const metadata = {
-  title: "Projects - DevSpace",
-  description: "Page description",
+  title: "Projects - Christopher Keim",
+  description: "Projects that Chris Keim has worked on",
 };
 
 export default function Projects() {
@@ -65,7 +65,7 @@ export default function Projects() {
   ];
 
   return (
-    <div className="relative mx-auto max-w-6xl px-4 sm:px-6 pb-12 pt-32 md:pb-20">
+    <div className="relative mx-auto max-w-6xl px-4 pb-12 pt-32 sm:px-6 md:pb-20">
       {/* Middle area */}
       <div className="grow">
         <div className="w-full">
@@ -78,11 +78,11 @@ export default function Projects() {
             <div className="space-y-10">
               {/* Side Hustles cards */}
               <section>
-                <h2 className="font-aspekta text-xl font-[650] mb-6">
+                <h2 className="font-aspekta mb-6 text-xl font-[650]">
                   Projects
                 </h2>
                 {/* Cards */}
-                <div className="grid md:grid-cols-2 gap-5">
+                <div className="grid gap-5 md:grid-cols-2">
                   {projects.map((item) => (
                     <ProjectCard key={item.id} item={item} />
                   ))}
@@ -90,11 +90,11 @@ export default function Projects() {
               </section>
               {/* Client Projects cards */}
               <section>
-                <h2 className="font-aspekta text-xl font-[650] mb-6">
+                <h2 className="font-aspekta mb-6 text-xl font-[650]">
                   Research Projects
                 </h2>
                 {/* Cards */}
-                <div className="grid md:grid-cols-2 gap-5">
+                <div className="grid gap-5 md:grid-cols-2">
                   {research.map((item) => (
                     <ProjectCard key={item.id} item={item} />
                   ))}

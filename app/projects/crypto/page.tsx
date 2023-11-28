@@ -7,7 +7,10 @@ import { ResearchOrderedList } from "@/components/Projects/Crypto/ResearchOrdere
 
 export const metadata = {
   title: "Crypto Real Time Inference",
-  description: "Built by Chris Keim",
+  description: `The aim of this application is to leverage historical cryptocurrency
+  price data and cutting-edge machine learning algorithms to serve
+  inferences about a cryptocurrency's future price points within a
+  1 hour window, in real time.`,
 };
 
 export default function CryptoPage() {

@@ -42,10 +42,18 @@ export function Experience() {
                   programming with 7 industry expert mentors
                 </li>
                 <li className="flex">
-                  <span className="mr-2">-</span> Keystone Project - Crypto Real
-                  Time Inference: Deep Learning application that serves
-                  inferences about Bitcoin&#39;s future price points within a 1
-                  hour window in real time
+                  <span className="mr-2">-</span>{" "}
+                  <span>
+                    <a
+                      href="https://www.christopherkeim.xyz/projects/crypto"
+                      className="text-blue-500"
+                    >
+                      Crypto Real Time Inference:
+                    </a>
+                    &nbsp; Deep Learning application that serves inferences
+                    about Bitcoin and Ethereum future price points within a 1
+                    hour window in real time
+                  </span>
                 </li>
               </ul>
             </div>
@@ -76,8 +84,15 @@ export function Experience() {
               </div>
               <ul className="text-sm text-slate-900 dark:text-slate-400">
                 <li className="mb-1 flex">
-                  <span className="mr-2">-</span> Implemented CI/CD pipeline for
-                  relativepath.tech
+                  <span className="mr-2">-</span> Implemented CI/CD pipeline
+                  for&nbsp;
+                  <a
+                    href="https://relativepath.tech/"
+                    target="_blank"
+                    className="text-blue-500"
+                  >
+                    relativepath.tech
+                  </a>
                 </li>
                 <li className="flex">
                   <span className="mr-2">-</span> Teaching assistant for three
@@ -112,19 +127,46 @@ export function Experience() {
               </div>
               <ul className="text-sm text-slate-900 dark:text-slate-400">
                 <li className="mb-1 flex">
-                  <span className="mr-2">-</span> Twitter Sentiment Analysis: DL
-                  development of a LSTM neural network for sentiment analysis on
-                  1.6 million tweets
+                  <span className="mr-2">-</span>
+                  <span>
+                    <a
+                      href="https://github.com/christopherkeim/machine_learning/blob/Projects/projects/Twitter_Sentiment_Analysis/Python/twitter_sentiment_analysis.ipynb"
+                      target="_blank"
+                      className="text-blue-500"
+                    >
+                      Twitter Sentiment Analysis:
+                    </a>
+                    &nbsp; DL development of a LSTM neural network for sentiment
+                    analysis on 1.6 million tweets
+                  </span>
                 </li>
                 <li className="mb-1 flex">
-                  <span className="mr-2">-</span> Instacart Market Basket EDA:
-                  EDA on dataset of over 3 million orders placed by more than
-                  200,000 Instacart users
+                  <span className="mr-2">-</span>
+                  <span>
+                    <a
+                      href="https://github.com/christopherkeim/machine_learning/blob/Projects/projects/Instacart_Market_Basket_Analysis/Python/instacart_market_basket_EDA.ipynb"
+                      target="_blank"
+                      className="text-blue-500"
+                    >
+                      Instacart Market Basket EDA:
+                    </a>
+                    &nbsp; EDA on dataset of over 3 million orders placed by
+                    more than 200,000 Instacart users
+                  </span>
                 </li>
                 <li className="flex">
-                  <span className="mr-2">-</span> Fetal Health Classification:
-                  ML development of 3 multiclass models that classify CTG
-                  features into fetal health states
+                  <span className="mr-2">-</span>
+                  <span>
+                    <a
+                      href="https://github.com/christopherkeim/machine_learning/blob/Projects/projects/Fetal_Health_Classification/Python/fetal_health_classification.ipynb"
+                      target="_blank"
+                      className="text-blue-500"
+                    >
+                      Fetal Health Classification:
+                    </a>
+                    &nbsp; ML development of 3 multiclass models that classify
+                    CTG features into fetal health states
+                  </span>
                 </li>
               </ul>
             </div>
@@ -156,10 +198,11 @@ export function Experience() {
               <div className="text-sm text-slate-900 dark:text-slate-400">
                 <p>
                   <span className="mr-2">-</span> Published co-author in
-                  experiment series establishing{" "}
+                  experiment series establishing a{" "}
                   <a
                     href="https://onlinelibrary.wiley.com/doi/abs/10.1002/jeab.446"
-                    className="text-sky-800"
+                    target="_blank"
+                    className="text-blue-500"
                   >
                     learning process&apos;s effect in addiction
                   </a>

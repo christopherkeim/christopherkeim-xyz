@@ -2,6 +2,7 @@ import Image from "next/image";
 
 import UnderdogDevsLogo from "@/public/images/underdog_devs_logo.png";
 import RelativePathLogo from "@/public/images/relative_path_logo.png";
+import UniversityOfVermont from "@/public/images/university_of_vermont_logo.png";
 
 export function Experience() {
   return (
@@ -176,12 +177,12 @@ export function Experience() {
           <div className="flex items-start before:absolute before:left-0 before:ml-[28px] before:h-full before:w-px before:-translate-x-1/2 before:translate-y-8 before:self-start before:bg-slate-200 before:group-last-of-type:hidden before:dark:bg-slate-800">
             <div className="absolute left-0 flex h-14 w-14 items-center justify-center rounded-full border border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900 dark:bg-gradient-to-t dark:from-slate-800 dark:to-slate-800/30">
               {/* Will update with proper logo later */}
-              <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17">
-                <path
-                  fill="#6366F1"
-                  d="M2.486 5.549C3.974 7.044 5.953 7.89 8.009 8.045c-.138-2.065-.997-4.053-2.486-5.548C4.035 1.002 2.117.154 0 0c.138 2.065.997 4.053 2.486 5.549Zm12.028 0c-1.488 1.495-3.467 2.342-5.523 2.496.138-2.065.997-4.053 2.486-5.548C12.888 1.002 14.883.154 17 0c-.153 2.065-.997 4.053-2.486 5.549Zm0 5.902c-1.488-1.495-3.467-2.342-5.523-2.496.138 2.065.997 4.053 2.486 5.548C12.965 15.998 14.944 16.846 17 17c-.153-2.127-.997-4.13-2.486-5.549Zm-12.028 0c1.488-1.495 3.467-2.342 5.6-2.496-.138 2.065-.998 4.053-2.486 5.548C4.035 15.998 2.117 16.861 0 17c.138-2.127.997-4.13 2.486-5.549Z"
-                />
-              </svg>
+              <Image
+                height={24}
+                width={24}
+                src={UniversityOfVermont}
+                alt="Relative Path Logo"
+              />
             </div>
             <div className="space-y-1 pl-20">
               <div className="text-xs uppercase text-slate-900 dark:text-slate-500">

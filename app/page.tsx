@@ -36,8 +36,7 @@ export default function About() {
                       </h2>
                     </div>
                     <h3 className="h4 mb-12">
-                      Machine Learning Engineer and Published Neuroscience
-                      Researcher
+                      Software Engineer and Published Neuroscience Researcher
                     </h3>
                   </FadeAnimation>
                   {/* Page content */}

@@ -1,5 +1,6 @@
-// IBM Applied DevOps Engineering Professional (IBM July 2023)
-// DevOps and Software Engineering Professional (IBM July 2023)
+// MLOps | Machine Learning Operations (Duke University December 2023)
+// IBM Applied DevOps Engineering Professional (IBM August 2023)
+// IBM DevOps and Software Engineering Professional (IBM July 2023)
 // Machine Learning Specialization (Stanford University, DeepLearning.AI June 2023)
 // CompTIA A+ Certification (CompTIA June 2023)
 export function WidgetCertifications() {
@@ -10,9 +11,9 @@ export function WidgetCertifications() {
         <li className="flex flex-col pb-2">
           <div className="mb-2">
             <p className="text-sm font-[650]">
-              IBM Applied DevOps Engineering Professional
+              MLOps | Machine Learning Operations
               <span className="mx-2 text-sky-500">—</span>
-              IBM, July 2023
+              Duke University, December 2023
             </p>
           </div>
           <hr className="h-px border-0 bg-sky-200 dark:bg-sky-500" />
@@ -20,7 +21,17 @@ export function WidgetCertifications() {
         <li className="flex flex-col pb-2">
           <div className="mb-2">
             <p className="text-sm font-[650]">
-              DevOps and Software Engineering Professional
+              IBM Applied DevOps Engineering Professional
+              <span className="mx-2 text-sky-500">—</span>
+              IBM, August 2023
+            </p>
+          </div>
+          <hr className="h-px border-0 bg-sky-200 dark:bg-sky-500" />
+        </li>
+        <li className="flex flex-col pb-2">
+          <div className="mb-2">
+            <p className="text-sm font-[650]">
+              IBM DevOps and Software Engineering Professional
               <span className="mx-2 text-sky-500">—</span>
               IBM, July 2023
             </p>

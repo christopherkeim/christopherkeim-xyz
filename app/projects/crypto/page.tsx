@@ -191,31 +191,16 @@ export default function CryptoPage() {
           the model&apos;s coefficients to be exactly zero.
         </PaperParagraph>
         <PaperParagraph>
-          The core feature of Lasso Regression is that in addition to minimizing
-          the least squares error (the difference between predicted and actual
-          values), an L1 regularization term is added to the loss function as
-          well.
-        </PaperParagraph>
-        <PaperParagraph>
-          The L1 regularization term encourages some of the coefficient values
-          to be exactly zero, resulting in a sparse model. This effectively
-          performs feature selection, meaning that a Lasso Regressor can
-          automatically identify and exclude less important features from the
-          model. Here, this means our resulting model is as simple as it can be
-          given we want it to have the most predictive power possible.
+          This means that a Lasso Regressor can automatically identify and
+          exclude less important features, meaning that our resulting model is
+          as simple as it can be given we want it to have the most predictive
+          power possible.
         </PaperParagraph>
         <PaperParagraph>
           My personal preference is always to reach for simple regression models
           first - not only do they serve as good baselines in your work if you
           end up requiring more complex modeling, they often perform quite well
           with some informed feature engineering choices or customization.
-        </PaperParagraph>
-        <PaperParagraph>
-          Another benefit here is that focusing on simple models first can
-          accelerate your development process. Building minimum viable models
-          allows you to focus on feature engineering, building web infrastrucure
-          to incorporate your service into an application, and developing CI/CD
-          pipelines for model deployment.
         </PaperParagraph>
         <PaperHeader headerLevel={5}>
           <b>Light Gradient Boosted Machine Regressor</b>
@@ -230,11 +215,6 @@ export default function CryptoPage() {
         <PaperParagraph>
           Ensemble methods are powerful, and often very successful in complex
           datasets.
-        </PaperParagraph>
-        <PaperParagraph>
-          Often a Gradient Boosted Tree or a Random Forest are solid choices
-          when testing whether a more complex model is better suited to your
-          dataset, without stepping into deep learning.
         </PaperParagraph>
         <PaperParagraph>
           The LGBMRegressor boasted a fast training time, but it did not appear

@@ -21,7 +21,7 @@ export default function Projects() {
       demoLink: "/projects/crypto",
       title: "Crypto Real Time Inference",
       excerpt:
-        "Leverages historical Bitcoin price data and cutting-edge machine learning algorithms to serve inferences about Bitcoin's future price points within a 1 hour window, in real time.",
+        "Leverages historical price data and cutting-edge machine learning algorithms to serve inferences about future Bitcoin and Ethereum price points within a 1 hour window, in real time.",
     },
     {
       id: "python_ml_template",
@@ -71,9 +71,7 @@ export default function Projects() {
         <div className="w-full">
           <section>
             {/* Page title */}
-            <h1 className="h1 font-aspekta mb-12">
-              Nice stuff I&apos;ve built
-            </h1>
+            <h1 className="h1 font-aspekta mb-12">Code I&apos;ve built</h1>
             {/* Page content */}
             <div className="space-y-10">
               {/* Side Hustles cards */}

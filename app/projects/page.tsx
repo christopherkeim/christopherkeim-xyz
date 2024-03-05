@@ -21,7 +21,16 @@ export default function Projects() {
       demoLink: "/projects/crypto",
       title: "Crypto Real Time Inference",
       excerpt:
-        "Leverages historical price data and cutting-edge machine learning algorithms to serve inferences about future Bitcoin and Ethereum price points within a 1 hour window, in real time.",
+        "This application leverages historical price data and cutting-edge machine learning algorithms to serve inferences about future Bitcoin and Ethereum price points within a 1 hour window, in real time.",
+    },
+    {
+      id: "rust_cli_template",
+      iconLight: GitHubIcon,
+      iconDark: GitHubIcon,
+      link: "https://github.com/christopherkeim/rust-cli-template",
+      title: "Rust CLI Template",
+      excerpt:
+        "A simple Rust command-line interface application that converts webpages to markdown files with automated development environment setup, CI/CD, and containerization 🦀 🚀 ✨.",
     },
     {
       id: "python_ml_template",
@@ -30,7 +39,7 @@ export default function Projects() {
       link: "https://github.com/christopherkeim/python-ml-template",
       title: "Python ML Template",
       excerpt:
-        "Open Source template repository for Python-based Machine Learning projects.",
+        "Open Source template repository for Python-based Machine Learning projects with a FastAPI for serving predictions, automated development environment setup, CI/CD, and containerization 🐍 🚀 ✨.",
     },
   ];
 

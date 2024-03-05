@@ -39,7 +39,7 @@ export default function Projects() {
       link: "https://github.com/christopherkeim/python-ml-template",
       title: "Python ML Template",
       excerpt:
-        "Open Source template repository for Python-based Machine Learning projects with a FastAPI for serving predictions, automated development environment setup, CI/CD, and containerization 🐍 🚀 ✨.",
+        "Open Source template repository for Python-based Machine Learning projects with FastAPI for serving predictions, automated development environment setup, CI/CD, and containerization 🐍 🚀 ✨.",
     },
   ];
 

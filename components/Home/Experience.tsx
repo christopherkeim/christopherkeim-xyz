@@ -44,8 +44,8 @@ export function Experience() {
                       Crypto Real Time Inference:
                     </a>
                     &nbsp; Full-stack deep learning application leveraging
-                    Python, FastAPI, Tensorflow, and TypeScript that serves and
-                    renders neural network predictions in real time
+                    Python, FastAPI, Tensorflow, and TypeScript to serve and
+                    render neural network predictions in real time
                   </span>
                 </li>
                 <li className="mb-1 flex">

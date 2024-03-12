@@ -34,14 +34,6 @@ export function Experience() {
                 Underdog Devs
               </div>
               <ul className="text-sm text-slate-900 dark:text-slate-400">
-                <li className="mb-1 flex">
-                  <span className="mr-2">-</span> Paid full-time apprenticeship
-                  in intensive software engineering preparatory program
-                </li>
-                <li className="mb-1 flex">
-                  <span className="mr-2">-</span> Rigorous weekly 1:1 pair
-                  programming with 7 industry expert mentors
-                </li>
                 <li className="flex">
                   <span className="mr-2">-</span>{" "}
                   <span>
@@ -51,10 +43,20 @@ export function Experience() {
                     >
                       Crypto Real Time Inference:
                     </a>
-                    &nbsp; Deep Learning application that serves inferences
-                    about Bitcoin and Ethereum future price points within a 1
-                    hour window in real time
+                    &nbsp; Full-stack deep learning application leveraging
+                    Python, FastAPI, Tensorflow, and TypeScript that serves and
+                    renders neural network predictions in real time
                   </span>
+                </li>
+                <li className="mb-1 flex">
+                  <span className="mr-2">-</span> Developed CI/CD pipelines
+                  supporting machine learning web service deployments across
+                  arm64 and x86_64 microprocessors using Golang, Docker, and
+                  GitHub Actions
+                </li>
+                <li className="mb-1 flex">
+                  <span className="mr-2">-</span> Rigorous daily 1:1 pair
+                  programming with 7 senior software engineer mentors
                 </li>
               </ul>
             </div>
@@ -84,16 +86,20 @@ export function Experience() {
                 Relative Path
               </div>
               <ul className="text-sm text-slate-900 dark:text-slate-400">
-                <li className="mb-1 flex">
-                  <span className="mr-2">-</span> Implemented CI/CD pipeline
-                  for&nbsp;
-                  <a
-                    href="https://relativepath.tech/"
-                    target="_blank"
-                    className="text-blue-500"
-                  >
-                    relativepath.tech
-                  </a>
+                <li className="flex">
+                  <span className="mr-2">-</span>
+                  <span>
+                    Implemented CI/CD pipelines for{" "}
+                    <a
+                      href="https://relativepath.tech/"
+                      target="_blank"
+                      className="text-blue-500"
+                    >
+                      relativepath.tech
+                    </a>{" "}
+                    with idempotent Bash scripting, GitHub Actions, and GitHub
+                    Pages for static site deployments
+                  </span>
                 </li>
                 <li className="flex">
                   <span className="mr-2">-</span> Teaching assistant for three
@@ -196,19 +202,21 @@ export function Experience() {
               <div className="text-sm font-medium text-slate-800 dark:text-slate-100">
                 Bouton Laboratory of Learning and Memory
               </div>
-              <div className="text-sm text-slate-900 dark:text-slate-400">
-                <p>
-                  <span className="mr-2">-</span> Published co-author in
-                  experiment series establishing a{" "}
-                  <a
-                    href="https://onlinelibrary.wiley.com/doi/abs/10.1002/jeab.446"
-                    target="_blank"
-                    className="text-blue-500"
-                  >
-                    learning process&apos;s effect in addiction
-                  </a>
-                </p>
-              </div>
+              <ul className="text-sm text-slate-900 dark:text-slate-400">
+                <li className="flex">
+                  <span className="mr-2">-</span>
+                  <span>
+                    Published co-author in experiment series establishing a{" "}
+                    <a
+                      href="https://onlinelibrary.wiley.com/doi/abs/10.1002/jeab.446"
+                      target="_blank"
+                      className="text-blue-500"
+                    >
+                      learning process&apos;s effect in addiction
+                    </a>
+                  </span>
+                </li>
+              </ul>
             </div>
           </div>
         </li>

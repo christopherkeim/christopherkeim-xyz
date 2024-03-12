@@ -34,7 +34,7 @@ export function Experience() {
                 Underdog Devs
               </div>
               <ul className="text-sm text-slate-900 dark:text-slate-400">
-                <li className="flex">
+                <li className="mb-2 flex">
                   <span className="mr-2">-</span>{" "}
                   <span>
                     <a
@@ -48,13 +48,13 @@ export function Experience() {
                     render neural network predictions in real time
                   </span>
                 </li>
-                <li className="mb-1 flex">
+                <li className="mb-2 flex">
                   <span className="mr-2">-</span> Developed CI/CD pipelines
                   supporting machine learning web service deployments across
                   arm64 and x86_64 microprocessors using Golang, Docker, and
                   GitHub Actions
                 </li>
-                <li className="mb-1 flex">
+                <li className="mb-2 flex">
                   <span className="mr-2">-</span> Rigorous daily 1:1 pair
                   programming with 7 senior software engineer mentors
                 </li>
@@ -86,7 +86,7 @@ export function Experience() {
                 Relative Path
               </div>
               <ul className="text-sm text-slate-900 dark:text-slate-400">
-                <li className="flex">
+                <li className="mb-2 flex">
                   <span className="mr-2">-</span>
                   <span>
                     Implemented CI/CD pipelines for{" "}
@@ -101,7 +101,7 @@ export function Experience() {
                     Pages for static site deployments
                   </span>
                 </li>
-                <li className="flex">
+                <li className="mb-2 flex">
                   <span className="mr-2">-</span> Teaching assistant for three
                   8-week cycles supporting intensive infrastructure instruction
                 </li>
@@ -133,7 +133,7 @@ export function Experience() {
                 Self - Projects
               </div>
               <ul className="text-sm text-slate-900 dark:text-slate-400">
-                <li className="mb-1 flex">
+                <li className="mb-2 flex">
                   <span className="mr-2">-</span>
                   <span>
                     <a
@@ -147,7 +147,7 @@ export function Experience() {
                     analysis on 1.6 million tweets
                   </span>
                 </li>
-                <li className="mb-1 flex">
+                <li className="mb-2 flex">
                   <span className="mr-2">-</span>
                   <span>
                     <a
@@ -161,7 +161,7 @@ export function Experience() {
                     more than 200,000 Instacart users
                   </span>
                 </li>
-                <li className="flex">
+                <li className="mb-2 flex">
                   <span className="mr-2">-</span>
                   <span>
                     <a
@@ -203,7 +203,7 @@ export function Experience() {
                 Bouton Laboratory of Learning and Memory
               </div>
               <ul className="text-sm text-slate-900 dark:text-slate-400">
-                <li className="flex">
+                <li className="mb-2 flex">
                   <span className="mr-2">-</span>
                   <span>
                     Published co-author in experiment series establishing a{" "}

@@ -124,7 +124,7 @@ export function ContactForm() {
                   </div>
                   <input
                     id="email"
-                    type="tel"
+                    type="email"
                     className="form-input w-full"
                     placeholder="yourname@example.com"
                     value={email}

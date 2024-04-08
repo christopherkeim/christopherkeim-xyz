@@ -415,30 +415,29 @@ export default function CryptoPage() {
         <PaperHeader headerLevel={3}>Continuous Deployment</PaperHeader>
         <PaperImage src="/images/continuous_deployment.png" />
         <PaperParagraph>
-          It was a very cool opportunity to work with a Raspberry Pi, because it
-          gave us a ton of control over the infrastructure and configuration
-          choices for our server.
+          Working with a Raspberry Pi gave us a ton of control over the
+          infrastructure and configuration choices for our server.
         </PaperParagraph>
         <PaperParagraph>
-          To tie everything together I built a custom Continuous Deployment
-          pipeline for our Raspberry Pi that rolls out an updated container
-          anytime a new image is pushed to our Docker Hub repository.
+          To tie our software supply chain together I built a custom Continuous
+          Deployment pipeline for our Raspberry Pi that rolls out an updated
+          container anytime a new image is pushed to our Docker Hub repository.
         </PaperParagraph>
         <PaperParagraph>
           First, we set up a tunnel into the Raspberry Pi using Cloudflare that
           routes traffic from our domain into the server.
         </PaperParagraph>
         <PaperParagraph>
-          I built an endpoint with Go that gets deployed onto our server along
-          with our Prediction Service container. The Go endpoint listens for
-          webhooks posted from Docker Hub whenever we push a new arm64 image to
-          our repository.
+          I built a simple endpoint with Golang that gets deployed onto our
+          server along with our Prediction Service container. The endpoint
+          listens for webhooks posted from Docker Hub whenever we push a new
+          arm64 image to our repository.
         </PaperParagraph>
         <PaperParagraph>
           When a POST request from Docker Hub is sent with a valid deployment
-          key, the Go endpoint triggers a script that pulls our new image from
-          Docker Hub, and rolls it out on the server. We used Docker Compose to
-          orchestrate container upgrades.
+          key, the Golang endpoint triggers a script that pulls our new image
+          from Docker Hub, and rolls it out on the server. We used Docker
+          Compose to orchestrate container upgrades.
         </PaperParagraph>
         <PaperParagraph>
           Finally, we built our tunnel, webhook endpoint, and the container into

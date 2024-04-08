@@ -345,7 +345,7 @@ export default function CryptoPage() {
           </li>
         </ul>
         <PaperHeader headerLevel={3}>Prediction Service</PaperHeader>
-        <PaperImage src="/images/prediction.png" />
+        <PaperImage src="/images/prediction_service.png" />
         <PaperParagraph>
           Our Prediction Service endpoint was built using FastAPI, and responds
           to GET requests parameterized for a cryptocurrency, timepoint, and

@@ -355,12 +355,12 @@ export default function CryptoPage() {
           After a valid request is made, the Prediction Service loads the
           requested model, downloads the past 24 hours of candle data for that
           cryptocurrency up to and including the requested timepoint, and
-          engineers a feature vector from those datapoints.
+          computes a feature vector from those datapoints.
         </PaperParagraph>
         <PaperParagraph>
           The feature vector is passed to the loaded model and a prediction is
-          made. The prediction is then packaged into a PredictionResult object
-          along with other metadata.
+          made. The prediction is then packaged along with metadata into a
+          PredictionResult.
         </PaperParagraph>
         <PaperParagraph>
           Finally, the PredictionResult object is delivered to the requester for

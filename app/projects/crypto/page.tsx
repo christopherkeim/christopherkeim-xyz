@@ -389,7 +389,9 @@ export default function CryptoPage() {
         <PaperParagraph>
           When new source code passes our CI pipeline and a pull request is
           merged into our repository&apos;s main branch, our CD pipeline
-          triggers a workflow that spins up two virtual machines.
+          triggers a workflow that spins up two virtual machines. A simple
+          Python script executed within the pipeline pulls our models from the
+          model registry and downloads them into each virtual machine.
         </PaperParagraph>
         <PaperParagraph>
           In one virtual machine, we emulate an arm64 microchip using QEMU and
@@ -402,10 +404,6 @@ export default function CryptoPage() {
           separate Docker image that&apos;s executable on amd64 microchips. This
           image can be used to deploy the Prediction Service to any of the
           standard cloud providers in a relatively straight forward way.
-        </PaperParagraph>
-        <PaperParagraph>
-          Here, I built a Python script that pulls our models from the model
-          registry and downloads them into each virutal machine at build time.
         </PaperParagraph>
         <PaperParagraph>
           After each image holding our Prediction Service and models is done

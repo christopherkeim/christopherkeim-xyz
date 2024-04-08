@@ -345,7 +345,7 @@ export default function CryptoPage() {
           </li>
         </ul>
         <PaperHeader headerLevel={3}>Prediction Service</PaperHeader>
-        <PaperImage src="/images/prediction.png" />
+        <PaperImage src="/images/prediction_service.png" />
         <PaperParagraph>
           Our Prediction Service endpoint was built using FastAPI, and responds
           to GET requests parameterized for a cryptocurrency, timepoint, and
@@ -355,12 +355,12 @@ export default function CryptoPage() {
           After a valid request is made, the Prediction Service loads the
           requested model, downloads the past 24 hours of candle data for that
           cryptocurrency up to and including the requested timepoint, and
-          engineers a feature vector from those datapoints.
+          computes a feature vector from those datapoints.
         </PaperParagraph>
         <PaperParagraph>
           The feature vector is passed to the loaded model and a prediction is
-          made. The prediction is then packaged into a PredictionResult object
-          along with other metadata.
+          made. The prediction is then packaged along with metadata into a
+          PredictionResult.
         </PaperParagraph>
         <PaperParagraph>
           Finally, the PredictionResult object is delivered to the requester for
@@ -389,7 +389,9 @@ export default function CryptoPage() {
         <PaperParagraph>
           When new source code passes our CI pipeline and a pull request is
           merged into our repository&apos;s main branch, our CD pipeline
-          triggers a workflow that spins up two virtual machines.
+          triggers a workflow that spins up two virtual machines. A simple
+          Python script executed within the pipeline pulls our models from the
+          model registry and downloads them into each virtual machine.
         </PaperParagraph>
         <PaperParagraph>
           In one virtual machine, we emulate an arm64 microchip using QEMU and
@@ -404,10 +406,6 @@ export default function CryptoPage() {
           standard cloud providers in a relatively straight forward way.
         </PaperParagraph>
         <PaperParagraph>
-          Here, I built a Python script that pulls our models from the model
-          registry and downloads them into each virutal machine at build time.
-        </PaperParagraph>
-        <PaperParagraph>
           After each image holding our Prediction Service and models is done
           building, they are pushed to our Docker Hub repository, where we can
           easily pull them down for deployments.
@@ -415,30 +413,29 @@ export default function CryptoPage() {
         <PaperHeader headerLevel={3}>Continuous Deployment</PaperHeader>
         <PaperImage src="/images/continuous_deployment.png" />
         <PaperParagraph>
-          It was a very cool opportunity to work with a Raspberry Pi, because it
-          gave us a ton of control over the infrastructure and configuration
-          choices for our server.
+          Working with a Raspberry Pi gave us a ton of control over the
+          infrastructure and configuration choices for our server.
         </PaperParagraph>
         <PaperParagraph>
-          To tie everything together I built a custom Continuous Deployment
-          pipeline for our Raspberry Pi that rolls out an updated container
-          anytime a new image is pushed to our Docker Hub repository.
+          To tie our software supply chain together I built a custom Continuous
+          Deployment pipeline for our Raspberry Pi that rolls out an updated
+          container anytime a new image is pushed to our Docker Hub repository.
         </PaperParagraph>
         <PaperParagraph>
           First, we set up a tunnel into the Raspberry Pi using Cloudflare that
           routes traffic from our domain into the server.
         </PaperParagraph>
         <PaperParagraph>
-          I built an endpoint with Go that gets deployed onto our server along
-          with our Prediction Service container. The Go endpoint listens for
-          webhooks posted from Docker Hub whenever we push a new arm64 image to
-          our repository.
+          I built a simple endpoint with Golang that gets deployed onto our
+          server along with our Prediction Service container. The endpoint
+          listens for webhooks posted from Docker Hub whenever we push a new
+          arm64 image to our repository.
         </PaperParagraph>
         <PaperParagraph>
           When a POST request from Docker Hub is sent with a valid deployment
-          key, the Go endpoint triggers a script that pulls our new image from
-          Docker Hub, and rolls it out on the server. We used Docker Compose to
-          orchestrate container upgrades.
+          key, the Golang endpoint triggers a script that pulls our new image
+          from Docker Hub, and rolls it out on the server. We used Docker
+          Compose to orchestrate container upgrades.
         </PaperParagraph>
         <PaperParagraph>
           Finally, we built our tunnel, webhook endpoint, and the container into

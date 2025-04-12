@@ -5,11 +5,11 @@ import { MobileMenu } from "@/components/ui/MobileMenu";
 
 export function Header() {
   return (
-    <header className="absolute w-full z-30">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="flex items-center justify-between h-20">
+    <header className="absolute z-30 w-full">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="flex h-20 items-center justify-between">
           {/* Site branding */}
-          <div className="shrink-0 mr-5">
+          <div className="mr-5 shrink-0">
             <Link
               href="/"
               className="block"
@@ -26,7 +26,7 @@ export function Header() {
               <li>
                 <Link
                   href="/"
-                  className="text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100 px-5 py-2 flex items-center transition duration-150 ease-in-out"
+                  className="flex items-center px-5 py-2 text-gray-600 transition duration-150 ease-in-out hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100"
                 >
                   Home
                 </Link>
@@ -34,9 +34,9 @@ export function Header() {
               <li>
                 <Link
                   href="/projects"
-                  className="text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100 px-5 py-2 flex items-center transition duration-150 ease-in-out"
+                  className="flex items-center px-5 py-2 text-gray-600 transition duration-150 ease-in-out hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100"
                 >
-                  My Work
+                  Projects
                 </Link>
               </li>
               <li>
@@ -44,9 +44,9 @@ export function Header() {
                   href="https://github.com/christopherkeim"
                   referrerPolicy="no-referrer"
                   target="_blank"
-                  className="text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100 px-5 py-2 flex items-center transition duration-150 ease-in-out"
+                  className="flex items-center px-5 py-2 text-gray-600 transition duration-150 ease-in-out hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100"
                 >
-                  My Github
+                  Github
                 </Link>
               </li>
             </ul>
@@ -55,13 +55,13 @@ export function Header() {
             <ThemeToggle className="ml-3" />
 
             {/* Desktop CTA on the right */}
-            <ul className="flex justify-end flex-wrap items-center">
+            <ul className="flex flex-wrap items-center justify-end">
               <li>
                 <Link
                   href="/contact"
-                  className="btn-sm text-white bg-blue-800 hover:bg-blue-700 ml-6"
+                  className="btn-sm ml-6 bg-blue-800 text-white hover:bg-blue-700"
                 >
-                  Contact
+                  Get in touch
                 </Link>
               </li>
             </ul>

@@ -2,7 +2,7 @@ export function About() {
   return (
     <section className="space-y-8">
       <h4 className="h4 font-aspekta text-slate-800 dark:text-slate-100">
-        👋 I'm Chris
+        👋 I&apos;m Chris
       </h4>
       <div className="font-medium text-slate-800 dark:text-slate-100">
         I provide software engineering and data science services for products

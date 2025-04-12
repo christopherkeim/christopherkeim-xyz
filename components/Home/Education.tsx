@@ -22,11 +22,6 @@ export function Education() {
               />
             </div>
             <div className="space-y-1 pl-20">
-              <div className="text-xs uppercase text-slate-500">
-                Aug 2014{" "}
-                <span className="text-slate-400 dark:text-slate-600">·</span>{" "}
-                May 2018
-              </div>
               <div className="font-aspekta font-[650] text-slate-800 dark:text-slate-100">
                 Bachelor of Science - Neuroscience
               </div>
@@ -47,7 +42,6 @@ export function Education() {
               />
             </div>
             <div className="space-y-1 pl-20">
-              <div className="text-xs uppercase text-slate-500">Dec 2017</div>
               <div className="font-aspekta font-[650] text-slate-800 dark:text-slate-100">
                 Study Abroad - Psychopharmacology
               </div>

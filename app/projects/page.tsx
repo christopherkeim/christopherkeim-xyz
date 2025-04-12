@@ -18,7 +18,7 @@ export default function Projects() {
       iconLight: IconLight,
       iconDark: IconDark,
       link: "https://github.com/christopherkeim/crypto-real-time-inference",
-      demoLink: "/projects/crypto",
+      // demoLink: "/projects/crypto",
       title: "Crypto Real Time Inference",
       excerpt:
         "This application leverages historical price data and cutting-edge machine learning algorithms to serve inferences about future Bitcoin and Ethereum price points within a 1 hour window, in real time.",
@@ -80,13 +80,13 @@ export default function Projects() {
         <div className="w-full">
           <section>
             {/* Page title */}
-            <h1 className="h1 font-aspekta mb-12">Code I&apos;ve built</h1>
+            {/* <h1 className="h1 font-aspekta mb-12">Code I&apos;ve built</h1> */}
             {/* Page content */}
             <div className="space-y-10">
               {/* Side Hustles cards */}
               <section>
                 <h2 className="font-aspekta mb-6 text-xl font-[650]">
-                  Projects
+                  Software
                 </h2>
                 {/* Cards */}
                 <div className="grid gap-5 md:grid-cols-2">
@@ -98,7 +98,7 @@ export default function Projects() {
               {/* Client Projects cards */}
               <section>
                 <h2 className="font-aspekta mb-6 text-xl font-[650]">
-                  Research Projects
+                  Data Science
                 </h2>
                 {/* Cards */}
                 <div className="grid gap-5 md:grid-cols-2">

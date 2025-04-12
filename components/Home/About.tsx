@@ -14,8 +14,8 @@ export function About() {
         technologies like Python, SQL, Golang, and .NET.
       </div>
       <div className="font-medium text-slate-800 dark:text-slate-100">
-        I have experience working across on-premise, cloud, and hybrid
-        technology stacks, from small teams to enterprise environments.
+        I have experience with on-premise, cloud, and hybrid technology stacks,
+        from small teams to enterprise environments.
       </div>
     </section>
   );

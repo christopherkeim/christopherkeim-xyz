@@ -4,14 +4,14 @@ export const metadata = {
 };
 
 import Image from "next/image";
+import Link from "next/link";
 import ChristopherKeim from "@/public/images/christopher_keim.jpg";
+import { About } from "@/components/Home/About";
 import { FadeAnimation } from "@/components/ui/FadeAnimation";
-import { Education } from "@/components/Home/Education";
-import { Experience } from "@/components/Home/Experience";
 import { WidgetSkills } from "@/components/Widgets/WidgetSkills";
 import { WidgetCertifications } from "@/components/Widgets/WidgetCertifications";
 
-export default function About() {
+export default function Home() {
   return (
     <div className="relative">
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
@@ -36,16 +36,24 @@ export default function About() {
                       </h2>
                     </div>
                     <h3 className="h4 mb-12">
-                      Software Engineer and Published Neuroscience Researcher
+                      Software Engineer | Data Scientist
                     </h3>
                   </FadeAnimation>
                   {/* Page content */}
                   <div className="space-y-12 text-slate-500 dark:text-slate-400">
                     <FadeAnimation>
-                      <Education />
+                      <About />
                     </FadeAnimation>
                     <FadeAnimation>
-                      <Experience />
+                      <div className="flex justify-center align-middle">
+                        <Link
+                          href="/contact"
+                          // className="btn-sm ml-6 bg-blue-800 text-white hover:bg-blue-700"
+                          className="my-2 inline-flex w-80 items-center justify-center rounded border border-transparent bg-blue-500 px-4 py-2 font-medium text-white transition duration-150 ease-in-out hover:bg-blue-400"
+                        >
+                          Get in touch
+                        </Link>
+                      </div>
                     </FadeAnimation>
                   </div>
                 </section>

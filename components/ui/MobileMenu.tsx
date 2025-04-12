@@ -53,7 +53,7 @@ export function MobileMenu() {
       >
         <span className="sr-only">Menu</span>
         <svg
-          className="w-6 h-6 fill-current text-gray-900 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100 transition duration-150 ease-in-out"
+          className="h-6 w-6 fill-current text-gray-900 transition duration-150 ease-in-out hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100"
           viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -69,7 +69,7 @@ export function MobileMenu() {
           show={mobileNavOpen}
           as="nav"
           id="mobile-nav"
-          className="fixed top-0 h-screen z-20 left-0 w-full max-w-sm -ml-16 overflow-scroll bg-white dark:bg-gray-900 shadow-lg no-scrollbar"
+          className="no-scrollbar fixed left-0 top-0 z-20 -ml-16 h-screen w-full max-w-sm overflow-scroll bg-white shadow-lg dark:bg-gray-900"
           enter="transition ease-out duration-200 transform"
           enterFrom="opacity-0 -tranblue-x-full"
           enterTo="opacity-100 tranblue-x-0"
@@ -77,11 +77,11 @@ export function MobileMenu() {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="py-6 pr-4 pl-20">
+          <div className="py-6 pl-20 pr-4">
             {/* Logo */}
             <Link
               href="/"
-              className="inline-block mb-4"
+              className="mb-4 inline-block"
               aria-label="Crypto Real Time Inference"
               onClick={() => setMobileNavOpen(false)}
             >
@@ -92,7 +92,7 @@ export function MobileMenu() {
               <li>
                 <Link
                   href="/"
-                  className="flex text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100 py-2"
+                  className="flex py-2 text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100"
                   onClick={() => setMobileNavOpen(false)}
                 >
                   Home
@@ -101,10 +101,10 @@ export function MobileMenu() {
               <li>
                 <Link
                   href="/projects"
-                  className="flex text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100 py-2"
+                  className="flex py-2 text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100"
                   onClick={() => setMobileNavOpen(false)}
                 >
-                  My Work
+                  Projects
                 </Link>
               </li>
               <li>
@@ -112,19 +112,19 @@ export function MobileMenu() {
                   href="https://github.com/christopherkeim"
                   referrerPolicy="no-referrer"
                   target="_blank"
-                  className="flex text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100 py-2"
+                  className="flex py-2 text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100"
                   onClick={() => setMobileNavOpen(false)}
                 >
-                  My Github
+                  Github
                 </Link>
               </li>
               <li>
                 <Link
                   href="/contact"
-                  className="font-medium w-full inline-flex items-center justify-center border border-transparent px-4 py-2 my-2 rounded text-white bg-blue-500 hover:bg-blue-400 transition duration-150 ease-in-out"
+                  className="my-2 inline-flex w-full items-center justify-center rounded border border-transparent bg-blue-500 px-4 py-2 font-medium text-white transition duration-150 ease-in-out hover:bg-blue-400"
                   onClick={() => setMobileNavOpen(false)}
                 >
-                  Contact
+                  Get in touch
                 </Link>
               </li>
             </ul>

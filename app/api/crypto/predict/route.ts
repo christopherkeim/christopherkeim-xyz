@@ -24,7 +24,7 @@ export async function POST(request: Request) {
     });
 
     const res = await fetch(
-      process.env.CRYPTO_REALTIME_INFERENCE_API_URI! + "?" + params.toString()
+      process.env.CRYPTO_REALTIME_INFERENCE_API_URI! + "?" + params.toString(),
     );
     const data = await res.json();
     return Response.json(data);

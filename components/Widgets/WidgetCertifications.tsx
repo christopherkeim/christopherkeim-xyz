@@ -48,16 +48,6 @@ export function WidgetCertifications() {
           </div>
           <hr className="h-px border-0 bg-sky-200 dark:bg-sky-500" />
         </li>
-        <li className="flex flex-col pb-2">
-          <div className="mb-2">
-            <p className="text-sm font-[650]">
-              CompTIA A+ Certification
-              <span className="mx-2 text-sky-500">—</span>
-              CompTIA, June 2023
-            </p>
-          </div>
-          <hr className="h-px border-0 bg-sky-200 dark:bg-sky-500" />
-        </li>
       </ul>
     </section>
   );

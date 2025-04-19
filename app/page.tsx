@@ -39,29 +39,25 @@ export default function Home() {
                   </h3>
                   {/* Page content */}
                   <div className="space-y-12 text-slate-500 dark:text-slate-400">
-                    <FadeAnimation>
-                      <About />
-                    </FadeAnimation>
-                    <FadeAnimation>
-                      <div className="flex justify-center p-1 align-middle">
-                        <Link
-                          href="/projects/crypto"
-                          // className="btn-sm ml-6 bg-blue-800 text-white hover:bg-blue-700"
-                          className="my-2 inline-flex w-80 items-center justify-center rounded border border-transparent bg-green-500 px-4 py-2 font-medium text-white transition duration-150 ease-in-out hover:bg-green-400"
-                        >
-                          Try ML in your browser
-                        </Link>
-                      </div>
-                      <div className="flex justify-center p-1 align-middle">
-                        <Link
-                          href="/contact"
-                          // className="btn-sm ml-6 bg-blue-800 text-white hover:bg-blue-700"
-                          className="my-2 inline-flex w-80 items-center justify-center rounded border border-transparent bg-blue-500 px-4 py-2 font-medium text-white transition duration-150 ease-in-out hover:bg-blue-400"
-                        >
-                          Get in touch
-                        </Link>
-                      </div>
-                    </FadeAnimation>
+                    <About />
+                    <div className="flex justify-center p-1 align-middle">
+                      <Link
+                        href="/projects/crypto"
+                        // className="btn-sm ml-6 bg-blue-800 text-white hover:bg-blue-700"
+                        className="my-2 inline-flex w-80 items-center justify-center rounded border border-transparent bg-green-500 px-4 py-2 font-medium text-white transition duration-150 ease-in-out hover:bg-green-400"
+                      >
+                        Try ML in your browser
+                      </Link>
+                    </div>
+                    <div className="flex justify-center p-1 align-middle">
+                      <Link
+                        href="/contact"
+                        // className="btn-sm ml-6 bg-blue-800 text-white hover:bg-blue-700"
+                        className="my-2 inline-flex w-80 items-center justify-center rounded border border-transparent bg-blue-500 px-4 py-2 font-medium text-white transition duration-150 ease-in-out hover:bg-blue-400"
+                      >
+                        Get in touch
+                      </Link>
+                    </div>
                   </div>
                 </section>
               </div>
@@ -70,12 +66,8 @@ export default function Home() {
             {/* Right sidebar */}
             <aside className="shrink-0 md:w-[240px] lg:w-[300px]">
               <div className="space-y-6">
-                <FadeAnimation fadeDelay={200}>
-                  <WidgetSkills />
-                </FadeAnimation>
-                <FadeAnimation fadeDelay={400}>
-                  <WidgetCertifications />
-                </FadeAnimation>
+                <WidgetSkills />
+                <WidgetCertifications />
               </div>
             </aside>
           </div>

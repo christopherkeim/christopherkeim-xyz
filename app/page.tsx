@@ -39,24 +39,26 @@ export default function Home() {
                   {/* Page content */}
                   <div className="space-y-12 text-slate-500 dark:text-slate-400">
                     <About />
-                    <div className="flex justify-center p-1 align-middle">
-                      <Link
-                        href="/projects/crypto"
-                        // className="btn-sm ml-6 bg-blue-800 text-white hover:bg-blue-700"
-                        className="my-2 inline-flex w-80 items-center justify-center rounded border border-transparent bg-green-500 px-4 py-2 font-medium text-white transition duration-150 ease-in-out hover:bg-green-400"
-                      >
-                        Try ML in your browser
-                      </Link>
-                    </div>
-                    <div className="flex justify-center p-1 align-middle">
-                      <Link
-                        href="/contact"
-                        // className="btn-sm ml-6 bg-blue-800 text-white hover:bg-blue-700"
-                        className="my-2 inline-flex w-80 items-center justify-center rounded border border-transparent bg-blue-500 px-4 py-2 font-medium text-white transition duration-150 ease-in-out hover:bg-blue-400"
-                      >
-                        Get in touch
-                      </Link>
-                    </div>
+                    <section>
+                      <div className="flex justify-center p-1 align-middle">
+                        <Link
+                          href="/projects/crypto"
+                          // className="btn-sm ml-6 bg-blue-800 text-white hover:bg-blue-700"
+                          className="my-2 inline-flex w-80 items-center justify-center rounded border border-transparent bg-green-500 px-4 py-2 font-medium text-white transition duration-150 ease-in-out hover:bg-green-400"
+                        >
+                          Try ML in your browser
+                        </Link>
+                      </div>
+                      <div className="flex justify-center p-1 align-middle">
+                        <Link
+                          href="/contact"
+                          // className="btn-sm ml-6 bg-blue-800 text-white hover:bg-blue-700"
+                          className="my-2 inline-flex w-80 items-center justify-center rounded border border-transparent bg-blue-500 px-4 py-2 font-medium text-white transition duration-150 ease-in-out hover:bg-blue-400"
+                        >
+                          Get in touch
+                        </Link>
+                      </div>
+                    </section>
                   </div>
                 </section>
               </div>

@@ -7,7 +7,6 @@ import Image from "next/image";
 import Link from "next/link";
 import ChristopherKeim from "@/public/images/christopher_keim.jpg";
 import { About } from "@/components/Home/About";
-import { FadeAnimation } from "@/components/ui/FadeAnimation";
 import { WidgetSkills } from "@/components/Widgets/WidgetSkills";
 import { WidgetCertifications } from "@/components/Widgets/WidgetCertifications";
 

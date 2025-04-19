@@ -1,8 +1,7 @@
 // This component is used to fade in elements on the page.
 // It uses the AOS library to do this.
 // It is implied that AOS is already installed and configured in the project.
-
-import React from "react";
+"use client";
 
 type FadeAnimationProps = {
   className?: string;

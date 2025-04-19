@@ -7,7 +7,6 @@ import Image from "next/image";
 import Link from "next/link";
 import ChristopherKeim from "@/public/images/christopher_keim.jpg";
 import { About } from "@/components/Home/About";
-import { FadeAnimation } from "@/components/ui/FadeAnimation";
 import { WidgetSkills } from "@/components/Widgets/WidgetSkills";
 import { WidgetCertifications } from "@/components/Widgets/WidgetCertifications";
 
@@ -22,48 +21,42 @@ export default function Home() {
               <div className="max-w-[700px]">
                 <section>
                   {/* Page title */}
-                  <FadeAnimation>
-                    <div className="mb-4 flex flex-col items-center justify-start sm:flex-row">
-                      <Image
-                        src={ChristopherKeim}
-                        alt="Christopher Keim"
-                        width={300}
-                        height={300}
-                        className="h-80 w-80 rounded-full object-cover sm:h-28 sm:w-28"
-                      />
-                      <h2 className="text-3xl font-bold sm:ml-4 sm:text-4xl">
-                        Christopher Keim
-                      </h2>
-                    </div>
-                    <h3 className="h4 mb-12">
-                      Software Engineer | Data Scientist
-                    </h3>
-                  </FadeAnimation>
+                  <div className="mb-4 flex flex-col items-center justify-start sm:flex-row">
+                    <Image
+                      src={ChristopherKeim}
+                      alt="Christopher Keim"
+                      width={300}
+                      height={300}
+                      className="h-80 w-80 rounded-full object-cover sm:h-28 sm:w-28"
+                    />
+                    <h2 className="text-3xl font-bold sm:ml-4 sm:text-4xl">
+                      Christopher Keim
+                    </h2>
+                  </div>
+                  <h3 className="h4 mb-12">
+                    Software Engineer | Data Scientist
+                  </h3>
                   {/* Page content */}
                   <div className="space-y-12 text-slate-500 dark:text-slate-400">
-                    <FadeAnimation>
-                      <About />
-                    </FadeAnimation>
-                    <FadeAnimation>
-                      <div className="flex justify-center p-1 align-middle">
-                        <Link
-                          href="/projects/crypto"
-                          // className="btn-sm ml-6 bg-blue-800 text-white hover:bg-blue-700"
-                          className="my-2 inline-flex w-80 items-center justify-center rounded border border-transparent bg-green-500 px-4 py-2 font-medium text-white transition duration-150 ease-in-out hover:bg-green-400"
-                        >
-                          Try ML in your browser
-                        </Link>
-                      </div>
-                      <div className="flex justify-center p-1 align-middle">
-                        <Link
-                          href="/contact"
-                          // className="btn-sm ml-6 bg-blue-800 text-white hover:bg-blue-700"
-                          className="my-2 inline-flex w-80 items-center justify-center rounded border border-transparent bg-blue-500 px-4 py-2 font-medium text-white transition duration-150 ease-in-out hover:bg-blue-400"
-                        >
-                          Get in touch
-                        </Link>
-                      </div>
-                    </FadeAnimation>
+                    <About />
+                    <div className="flex justify-center p-1 align-middle">
+                      <Link
+                        href="/projects/crypto"
+                        // className="btn-sm ml-6 bg-blue-800 text-white hover:bg-blue-700"
+                        className="my-2 inline-flex w-80 items-center justify-center rounded border border-transparent bg-green-500 px-4 py-2 font-medium text-white transition duration-150 ease-in-out hover:bg-green-400"
+                      >
+                        Try ML in your browser
+                      </Link>
+                    </div>
+                    <div className="flex justify-center p-1 align-middle">
+                      <Link
+                        href="/contact"
+                        // className="btn-sm ml-6 bg-blue-800 text-white hover:bg-blue-700"
+                        className="my-2 inline-flex w-80 items-center justify-center rounded border border-transparent bg-blue-500 px-4 py-2 font-medium text-white transition duration-150 ease-in-out hover:bg-blue-400"
+                      >
+                        Get in touch
+                      </Link>
+                    </div>
                   </div>
                 </section>
               </div>
@@ -72,12 +65,8 @@ export default function Home() {
             {/* Right sidebar */}
             <aside className="shrink-0 md:w-[240px] lg:w-[300px]">
               <div className="space-y-6">
-                <FadeAnimation fadeDelay={200}>
-                  <WidgetSkills />
-                </FadeAnimation>
-                <FadeAnimation fadeDelay={400}>
-                  <WidgetCertifications />
-                </FadeAnimation>
+                <WidgetSkills />
+                <WidgetCertifications />
               </div>
             </aside>
           </div>

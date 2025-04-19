@@ -1,8 +1,8 @@
 // This component is used to fade in elements on the page.
 // It uses the AOS library to do this.
 // It is implied that AOS is already installed and configured in the project.
-
-import React from "react";
+"use client";
+import React, { useEffect } from "react";
 
 type FadeAnimationProps = {
   className?: string;
@@ -17,6 +17,14 @@ export function FadeAnimation({
   fadeDelay = 0,
   children,
 }: FadeAnimationProps) {
+  useEffect(() => {
+    window.onpageshow = function (event) {
+      if (event.persisted) {
+        window.location.reload();
+      }
+    };
+  }, []);
+
   return (
     <div
       className={className ?? ""}

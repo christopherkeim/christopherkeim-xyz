@@ -47,13 +47,17 @@ export function PredictionResult({ prediction }: PredictionResultProps) {
       const options = {
         type: "line",
         data: {
-          labels: createHours(prediction.time.getHours()),
+          labels: createHours(prediction.request_timestamp),
           datasets: [
             {
               label: `${
                 prediction?.coin.startsWith("E") ? "Ethereum" : "Bitcoin"
               } Prices`,
-              data: [...prediction.prices_24_hours, prediction.prediction],
+              data: [
+                ...prediction.prices_24_hours.slice(1),
+                prediction.current_price,
+                prediction.prediction,
+              ],
               pointBorderColor: (context: any) => {
                 const index = context.dataIndex;
                 if (index !== 24) {
@@ -153,13 +157,32 @@ export function PredictionResult({ prediction }: PredictionResultProps) {
     return new Chart(context, options);
   }
 
-  function createHours(hour: number) {
-    const hours: number[] = [];
+  function createHours(dateString: string) {
+    const date = new Date(dateString);
 
-    for (let i = 0; i < 25; i++) {
-      hours.push((hour + i) % 24);
+    const formatLocalTimeZoningForClientHours = (date: Date) => {
+      const clientInfo = Intl.DateTimeFormat().resolvedOptions();
+      const timeZoned = new Date(
+        date.toLocaleString(clientInfo.locale, {
+          timeZone: clientInfo.timeZone,
+        }),
+      );
+
+      return new Date(timeZoned.setMinutes(0, 0, 0));
+    };
+
+    const currentDate = formatLocalTimeZoningForClientHours(date);
+
+    const subtractions: number[] = [];
+    for (let i = 23; i > 0; i--) {
+      subtractions.push(i);
     }
-    return hours;
+
+    const past23Hours = subtractions.map((hour) =>
+      new Date(currentDate.getTime() - hour * 60 * 60 * 1000).getHours(),
+    );
+
+    return [...past23Hours, currentDate.getHours(), currentDate.getHours() + 1];
   }
   return (
     <div className="mt-16 flex h-full w-full flex-col justify-center gap-5 rounded border border-gray-300 px-5 py-4 dark:border dark:border-gray-800 dark:bg-zinc-800 md:mt-0">

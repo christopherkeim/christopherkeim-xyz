@@ -1,3 +1,4 @@
+import NonSSRWrapper from "@/components/NonSSRWrapper";
 import { PredictionContainer } from "@/components/Projects/Crypto/PredictionContainer";
 
 export default function CryptoHero() {
@@ -11,7 +12,9 @@ export default function CryptoHero() {
         <p className="pt-6 md:pt-0">
           These models run <i>on device</i> in your browser.
         </p>
-        <PredictionContainer />
+        <NonSSRWrapper>
+          <PredictionContainer />
+        </NonSSRWrapper>
       </div>
     </section>
   );

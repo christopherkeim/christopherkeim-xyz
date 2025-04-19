@@ -93,8 +93,6 @@ export function PredictionForm({
   return (
     <form
       className="mt-8 flex w-full flex-col gap-1 md:flex-row md:gap-4"
-      data-aos="fade-down"
-      data-aos-delay="300"
       onSubmit={handleSubmit}
     >
       <div className="flex flex-col">

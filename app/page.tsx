@@ -45,7 +45,16 @@ export default function Home() {
                       <About />
                     </FadeAnimation>
                     <FadeAnimation>
-                      <div className="flex justify-center align-middle">
+                      <div className="flex justify-center p-1 align-middle">
+                        <Link
+                          href="/projects/crypto"
+                          // className="btn-sm ml-6 bg-blue-800 text-white hover:bg-blue-700"
+                          className="my-2 inline-flex w-80 items-center justify-center rounded border border-transparent bg-green-500 px-4 py-2 font-medium text-white transition duration-150 ease-in-out hover:bg-green-400"
+                        >
+                          Try ML in your browser
+                        </Link>
+                      </div>
+                      <div className="flex justify-center p-1 align-middle">
                         <Link
                           href="/contact"
                           // className="btn-sm ml-6 bg-blue-800 text-white hover:bg-blue-700"

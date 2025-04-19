@@ -40,7 +40,7 @@ export default function Home() {
                   <div className="space-y-12 text-slate-500 dark:text-slate-400">
                     <About />
                     <section>
-                      <div className="flex justify-center p-1 align-middle">
+                      <div className="flex justify-center align-middle">
                         <Link
                           href="/projects/crypto"
                           // className="btn-sm ml-6 bg-blue-800 text-white hover:bg-blue-700"
@@ -49,7 +49,7 @@ export default function Home() {
                           Try ML in your browser
                         </Link>
                       </div>
-                      <div className="flex justify-center p-1 align-middle">
+                      <div className="flex justify-center align-middle">
                         <Link
                           href="/contact"
                           // className="btn-sm ml-6 bg-blue-800 text-white hover:bg-blue-700"

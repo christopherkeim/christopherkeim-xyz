@@ -18,7 +18,7 @@ export default function Projects() {
       iconLight: IconLight,
       iconDark: IconDark,
       link: "https://github.com/christopherkeim/crypto-real-time-inference",
-      // demoLink: "/projects/crypto",
+      demoLink: "/projects/crypto",
       title: "Crypto Real Time Inference",
       excerpt:
         "This application leverages historical price data and cutting-edge machine learning algorithms to serve inferences about future Bitcoin and Ethereum price points within a 1 hour window, in real time.",

@@ -1,8 +1,16 @@
 "use client";
 
 import { Dispatch, SetStateAction, useState } from "react";
+import * as tf from "@tensorflow/tfjs";
+import {
+  removeXHours,
+  getPast24HoursCoinbaseCandles,
+  runFeatureEngineeringPipeline,
+} from "./MLE/preprocessing";
 
 type PredictionFormProps = {
+  btcCnnModel: tf.GraphModel<string | tf.io.IOHandler> | null;
+  ethCnnModel: tf.GraphModel<string | tf.io.IOHandler> | null;
   setPrediction: Dispatch<SetStateAction<Prediction | null>>;
 };
 
@@ -17,64 +25,66 @@ export type Prediction = {
   prices_24_hours: number[];
 };
 
-export function PredictionForm({ setPrediction }: PredictionFormProps) {
+export function PredictionForm({
+  btcCnnModel,
+  ethCnnModel,
+  setPrediction,
+}: PredictionFormProps) {
   const [coin, setCoin] = useState<string>("BTC-USD");
   const [time, setTime] = useState<string>("now");
   const [model, setModel] = useState<string>("cnn");
 
+  const coinToModelMapping = (coin: string) => {
+    return coin === "BTC-USD" ? btcCnnModel : ethCnnModel;
+  };
+
+  async function predict(coin: string, time: string, modelName: string) {
+    const currentTime = new Date();
+
+    const predictionTimeStamp =
+      time === "now" ? currentTime : removeXHours(currentTime, parseInt(time));
+
+    const model = coinToModelMapping(coin);
+
+    if (model === null) {
+      return;
+    }
+
+    const rawData = await getPast24HoursCoinbaseCandles(
+      coin,
+      predictionTimeStamp,
+    );
+
+    const preprocessedData = runFeatureEngineeringPipeline(rawData.data, coin);
+
+    const t = tf.tensor(preprocessedData.data).reshape([-1, 68, 1]);
+
+    const prediction = model.predict(t) as tf.Tensor<tf.Rank>;
+
+    const predictedPrice = prediction.dataSync()[0];
+
+    const difference = predictedPrice - preprocessedData.currentPrice;
+
+    const sign = difference > 0 ? "+" : "";
+
+    setPrediction({
+      model: modelName,
+      coin: coin,
+      current_price: preprocessedData.currentPrice.toString(),
+      prediction: predictedPrice.toString(),
+      time: predictionTimeStamp,
+      request_timestamp: predictionTimeStamp.toISOString(),
+      difference: sign + difference.toString(),
+      prices_24_hours: preprocessedData.closingPricesForLast24Hours,
+    });
+  }
+
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+
     try {
       // Fire off fetch to predict endpoint
-      const response = await fetch("/api/crypto/predict", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        mode: "no-cors",
-        body: JSON.stringify({
-          coin: coin,
-          time: time,
-          model: model,
-        }),
-      });
-
-      if (!response.ok)
-        throw new Error(
-          "An error occurred while performing api fetch: " +
-            response.statusText,
-        );
-
-      const json: {
-        prediction: {
-          model: string;
-          coin: string;
-          current_price: string;
-          prediction: string;
-          time: string;
-          request_timestamp: string;
-          difference: string;
-          past_24_hour_prices: number[];
-        };
-      } = await response.json();
-
-      if (!json.prediction) {
-        throw new Error("An error occurred while parsing response: " + json);
-      }
-
-      const { prediction } = json;
-
-      // If all goes well, set the prediction state, which will trigger a re-render in the prediction result component
-      setPrediction({
-        model: prediction.model,
-        coin: prediction.coin,
-        current_price: prediction.current_price,
-        prediction: prediction.prediction,
-        time: new Date(parseInt(prediction.time)),
-        request_timestamp: prediction.request_timestamp,
-        difference: prediction.difference,
-        prices_24_hours: prediction.past_24_hour_prices,
-      });
+      predict(coin, time, model);
     } catch (error) {
       console.error(error);
     }
@@ -145,7 +155,6 @@ export function PredictionForm({ setPrediction }: PredictionFormProps) {
           onChange={(event) => setModel(event.target.value)}
         >
           <option value="cnn">CNN</option>
-          <option value="lasso">LASSO</option>
         </select>
       </div>
 
